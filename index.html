@@ -1,0 +1,252 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
+    <script src="https://gftruj.github.io/webzamples/aframe/controls/oculus-thumbstick-controls.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script src="MockProduct.js"></script>
+    <script src="functions/buyNow.js"></script>
+    <script src="functions/addToCart.js"></script>
+    <script src="functions/cartModal.js"></script>
+
+    <style>
+         .loader {
+          border: 3px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 3px solid #3498db;
+          width: 20px;
+          height: 20px;
+          -webkit-animation: spin 2s linear infinite; /* Safari */
+          animation: spin 2s linear infinite;
+        }
+        /* Safari */
+          @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+          }
+
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+    </style>
+
+    <script>
+      AFRAME.registerComponent("click-log", {
+        init: function () {
+          this.myFunction = function (i) {
+            console.log("hi",i);
+            const productId = i?.path[0]?.components['click-log']?.data;
+             console.log(productId);
+             if(productId == "checkout"){
+                // window.location.href = 'Checkout.html'
+             }else{
+
+              const addedProducts = sessionStorage.getItem("x-user-cart");
+              const toJsonCart = JSON.parse(addedProducts);
+              const checkCart = checkIfInCart(toJsonCart, productId)
+              const addToCartButton = document.getElementById("addToCartButton");
+               if (checkCart) {
+                 addToCartButton.innerHTML = "Already in Cart";
+                 addToCartButton.disabled = true
+               } else {
+                 addToCartButton.innerHTML = "Add to cart";
+                 addToCartButton.disabled = false
+               }
+
+
+               const clickedProduct = products.find((data) => data.id === Number(productId))
+               console.log("clickedProduct", clickedProduct);
+               const productImag = document.getElementById('nftImg')
+               productImag.src = clickedProduct?.image
+               const modalHeader = document.getElementById('modalHeader')
+               modalHeader.innerHTML = clickedProduct?.title
+               const priceElement = document.getElementById('priceElement')
+               priceElement.innerHTML = clickedProduct?.price
+               const description = document.getElementById('description')
+               description.innerHTML = `${clickedProduct?.description}  <br/>  <br/> <p>${clickedProduct?.props}</p>`
+               document.getElementById('buttonModal').click()
+                const buyNowButton= document.getElementById('buyNowButton')
+                 buyNowButton.setAttribute('productId', Number(productId))
+               const camera = document.getElementById('camera');
+               camera.setAttribute('look-controls', { enabled: false })
+             }
+          };
+          this.el.addEventListener("click", this.myFunction);
+        },
+        remove: function () {
+          this.el.removeEventListener("click", this.myFunction);
+          camera.setAttribute('look-controls', { enabled: true })
+        }
+      });
+
+ 
+     function closeModal (){
+        const buyNowButton = document.getElementById('buyNowButton')
+        buyNowButton.innerHTML = "Buy Now"
+        camera.setAttribute('look-controls', { enabled: true })
+      }
+    </script>
+  
+  </head>
+  <body>
+    <button id="buttonModal" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"
+      style="display: none;">Open Modal</button>
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content" style="background-color: #555555d4;color: white;">
+          <div class="modal-body">
+            <center>
+              <img id="nftImg" style="max-height: 280px;width: auto;border: 10px solid;border-radius: 5px;" />
+              <h4 class="modal-title" id="modalHeader" style=" font-weight: bold;margin-top: 15px;">Product Title</h4>
+              <h4 style=" margin-bottom: 25px;">Price: <b style="color:#EB984E" id="priceElement">
+                  <div class="loader"></div>
+                </b> INR</h4>
+              <h4 style=" margin-bottom: 25px; font-size: 12px;"><b style="color:#f9f7f5" id="description">
+                </b></h4>
+              <a id="redirectLink" target="_blank" style="cursor: pointer;">
+                <button id="addToCartButton" type="button" class="btn btn-primary" style="padding: 12px;margin-right: 10px;" onclick="addToCart()">Add to cart</button>
+              </a>
+              <button type="button" class="btn btn-warning" id="buyNowButton" style="padding: 12px;" onclick="buyNow()">Buy Now </button>
+            </center>
+          </div>
+          <div class="modal-footer" id="modalFooter">
+            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeModal()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- --------------------------------cart modal --------------------- -->
+<div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myCartModal" onclick = "constructTable('#table')">
+    View Cart
+  </button>
+</div>
+<div class="modal " id="myCartModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" >
+      <div class="modal-body">
+        <center>
+          <table align="center" id="table" border="1">
+          </table>
+          
+        </center>
+      </div>
+      <div class="modal-footer" id="modalFooter">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- --------------------------------cart modal --------------------- -->
+    <a-scene gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/v1/decoders/;
+    meshoptDecoderPath: https://unpkg.com/meshoptimizer@0.16.0/meshopt_decoder.js;">
+    <a-entity light="type: ambient; color: #BBB"></a-entity>
+    <!-- <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity> -->
+      <a-camera id="camera"  position="0 3 0" look-controls="pointerLockEnabled: true">
+        <!-- look-controls="pointerLockEnabled: true" -->
+      <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1"
+        geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: red; shader: flat">
+      </a-entity>
+
+      </a-camera>
+      
+   
+        <a-assets>
+            <a-asset-item id="Stand" src="Stand.glb"></a-asset-item>
+            <a-asset-item id="shampooBottol" src="shampooBottol.glb"></a-asset-item>
+            <a-asset-item id="PowderBottol" src="PowderBottol.glb"></a-asset-item>
+            <a-asset-item id="Sparay" src="Sparay.glb"></a-asset-item>
+            <a-asset-item id="faceWash" src="faceWash.glb"></a-asset-item>
+            <a-asset-item id="blueBottol" src="blueBottol.glb"></a-asset-item>
+            <a-asset-item id="lipBam" src="lipBam.glb"></a-asset-item>
+            <a-asset-item id="greenBottol" src="greenBottol.glb"></a-asset-item>
+        </a-assets>
+
+
+      <a-entity environment="preset: default; fog:0; groundColor: #196F3D; groundColor2:#196F3D; dressingColor:#196F3D"  scale="20 20 20"></a-entity>
+      <a-entity gltf-model="#Stand" position="10 0 0" scale="3 2 2"></a-entity>
+      <a-entity gltf-model="#Stand" position="10 0 10" scale="3 2 2"></a-entity>
+      <a-entity gltf-model="#Stand" position="10 0 20" scale="3 2 2" ></a-entity>
+
+<a-text value="Grooming section"  position="16 8 -4"  scale="5 5 5"  rotation="0 270 0" click-log="checkout"></a-text>
+
+        <!-- Shampoo bottols store -->
+          <a-entity gltf-model="#shampooBottol" position="6 3.3 -0.5" scale="4 4 4" rotation="0 180 0" click-log="1"></a-entity>
+          <a-entity gltf-model="#shampooBottol" position="7 3.3 -0.5" scale="4 4 4" rotation="0 180 0" click-log="1"></a-entity>
+          <a-entity gltf-model="#shampooBottol" position="8 3.3 -0.5" scale="4 4 4" rotation="0 180 0" click-log="1"></a-entity>
+          <a-entity gltf-model="#PowderBottol" position="9 3.3 -0.5" scale="6 6 6" rotation="0 180 0" click-log="2"></a-entity>
+          <a-entity gltf-model="#PowderBottol" position="10 3.3 -0.5" scale="6 6 6" rotation="0 180 0" click-log="2"></a-entity>
+          <a-entity gltf-model="#PowderBottol" position="11 3.3 -0.5" scale="6 6 6" rotation="0 180 0" click-log="2"></a-entity>
+          <a-entity gltf-model="#PowderBottol" position="12 3.3 -0.5" scale="6 6 6" rotation="0 180 0" click-log="2"></a-entity>
+          <a-entity gltf-model="#PowderBottol" position="13 3.3 -0.5" scale="6 6 6" rotation="0 180 0" click-log="2"></a-entity>
+         <!-- rack 2 , table 1 -->
+          <a-entity gltf-model="#Sparay" position="6 2 -0.5" scale="1.5 1.5 1.5" rotation="0 180 0" click-log="3"></a-entity>
+          <a-entity gltf-model="#Sparay" position="7 2 -0.5" scale="1.5 1.5 1.5" rotation="0 180 0" click-log="3"></a-entity>
+          <a-entity gltf-model="#Sparay" position="8 2 -0.5" scale="1.5 1.5 1.5" rotation="0 180 0" click-log="3"></a-entity>
+          <a-entity gltf-model="#Sparay" position="9 2 -0.5" scale="1.5 1.5 1.5" rotation="0 180 0" click-log="3"></a-entity>
+          <a-entity gltf-model="#Sparay" position="10 2 -0.5" scale="1.5 1.5 1.5" rotation="0 180 0" click-log="3"></a-entity>
+          <a-entity gltf-model="#Sparay" position="11 2 -0.5" scale="2 2.5 2" rotation="0 180 0" click-log="3"></a-entity>
+          <a-entity gltf-model="#Sparay" position="12 2 -0.5" scale="2 2.5 2" rotation="0 180 0" click-log="3"></a-entity>
+          <a-entity gltf-model="#Sparay" position="13 2 -0.5" scale="2 2.5 2" rotation="0 180 0" click-log="3"></a-entity>
+         <!-- rack 3 , table 1 -->
+          <a-entity gltf-model="#faceWash" position="6 0.5 -0.5" scale="5 5 5" rotation="0 180 0" click-log="4"></a-entity>
+          <a-entity gltf-model="#faceWash" position="7 0.5 -0.5" scale="5 5 5" rotation="0 180 0" click-log="4"></a-entity>
+          <a-entity gltf-model="#faceWash" position="8 0.5 -0.5" scale="5 5 5" rotation="0 180 0" click-log="4"></a-entity>
+          <a-entity gltf-model="#faceWash" position="9 0.5 -0.5" scale="5 5 5" rotation="0 180 0" click-log="4"></a-entity>
+          <a-entity gltf-model="#faceWash" position="10 0.5 -0.5" scale="5 5 5" rotation="0 180 0" click-log="4"></a-entity>
+          <a-entity gltf-model="#faceWash" position="11 0.5 -0.5" scale="5 5 5" rotation="0 180 0" click-log="4"></a-entity>
+          <a-entity gltf-model="#faceWash" position="12 0.5 -0.5" scale="5 5 5" rotation="0 180 0" click-log="4"></a-entity>
+          <a-entity gltf-model="#faceWash" position="13 0.5 -0.5" scale="5 5 5" rotation="0 180 0" click-log="4"></a-entity>
+         <!-- rack 3 , table top 3 right -->
+      <a-entity gltf-model="#blueBottol" position="6 3.3 0.5" scale="6 6 6" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#blueBottol" position="7 3.3 0.5" scale="6 6 6" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#blueBottol" position="8 3.3 0.5" scale="6 6 6" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#blueBottol" position="9 3.3 0.5" scale="6 6 6" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#Sparay" position="10 3.3 0.5" scale="2 2.5 2" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#Sparay" position="11 3.3 0.5" scale="2 2.5 2" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#Sparay" position="12 3.3 0.5" scale="2 2.5 2" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#Sparay" position="13 3.3 0.5" scale="2 2.5 2" rotation="0 180 0"></a-entity>
+         <!-- rack 3 , table top 2 right -->
+      <a-entity gltf-model="#lipBam" position="6 2 0.5" scale="6 6 6" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#lipBam" position="7 2 0.5" scale="6 6 6" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#lipBam" position="8 2 0.5" scale="6 6 6" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#lipBam" position="9 2 0.5" scale="6 6 6" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#lipBam" position="10 2 0.5" scale="6 6 6" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#lipBam" position="11 2 0.5" scale="6 6 6" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#lipBam" position="12 2 0.5" scale="6 6 6" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#lipBam" position="13 2 0.5" scale="6 6 6" rotation="0 180 0"></a-entity>
+      <!-- rack 3 , table top 1 right -->
+
+          <a-entity gltf-model="#greenBottol" position="6 0.5 0.5" scale="7 7 7" ></a-entity>
+          <a-entity gltf-model="#greenBottol" position="7 0.5 0.5" scale="7 7 7" ></a-entity>
+          <a-entity gltf-model="#greenBottol" position="8 0.5 0.5" scale="7 7 7" ></a-entity>
+          <a-entity gltf-model="#greenBottol" position="9 0.5 0.5" scale="7 7 7" ></a-entity>
+          <a-entity gltf-model="#greenBottol" position="10 0.5 0.5" scale="7 7 7" ></a-entity>
+          <a-entity gltf-model="#greenBottol" position="11 0.5 0.5" scale="7 7 7" ></a-entity>
+          <a-entity gltf-model="#greenBottol" position="12 0.5 0.5" scale="7 7 7" ></a-entity>
+          <a-entity gltf-model="#greenBottol" position="13 0.5 0.5" scale="7 7 7" ></a-entity>
+    
+      
+      <a-entity id="rig">
+        <a-camera position="0 2 0"></a-camera>
+        <a-entity oculus-touch-controls="hand: left" ></a-entity>
+        <a-entity oculus-touch-controls="hand: right" oculus-thumbstick-controls></a-entity>
+    </a-entity>
+    </a-scene>
+     
+
+
+  </body>
+</html>
