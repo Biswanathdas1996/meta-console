@@ -154,7 +154,7 @@
     meshoptDecoderPath: https://unpkg.com/meshoptimizer@0.16.0/meshopt_decoder.js;">
     <a-entity light="type: ambient; color: #BBB"></a-entity>
     <!-- <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity> -->
-      <a-camera id="camera"  position="0 3 50" look-controls="pointerLockEnabled: true">
+      <a-camera id="camera"  position="10 3 10" look-controls="pointerLockEnabled: true">
         <!-- look-controls="pointerLockEnabled: true" -->
       <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1"
         geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: red; shader: flat">
@@ -179,6 +179,9 @@
             <a-asset-item id="tropicana1" src="tropicana1.glb"></a-asset-item>
             <a-asset-item id="tropicana2" src="tropicana2.glb"></a-asset-item>
             <a-asset-item id="tropicana3" src="tropicana3.glb"></a-asset-item>
+            <a-asset-item id="banner1" src="banner1.glb"></a-asset-item>
+            <a-asset-item id="banner2" src="banner2.glb"></a-asset-item>
+            <a-asset-item id="icrCream" src="icrCream.glb"></a-asset-item>
         </a-assets>
 
 
@@ -188,10 +191,14 @@
      
 
 
-      <a-entity gltf-model="#shop" position="10 0 10" scale="15 15 30" ></a-entity>
+      <a-entity gltf-model="#shop" position="15 0 5" scale="15 15 30" ></a-entity>
 
-<a-text value="Grooming section"  position="5 7 -1"  scale="5 5 5"  rotation="0 0 0" click-log="checkout"></a-text>
-<a-text value="Daily Essentials section"  position="5 7 9"  scale="5 5 5"  rotation="0 0 0" click-log="checkout"></a-text>
+      <a-entity gltf-model="#banner1" position="12 3.5 -11.5" scale="40 40 40" rotation="0 90 0" ></a-entity>
+      <a-entity gltf-model="#banner2" position="2 4.5 4" scale="40 60 58" rotation="0 0 0" ></a-entity>
+      <a-entity gltf-model="#icrCream" position="24 0 -9" scale="30 22 30" rotation="0 -90 0" ></a-entity>
+
+<!-- <a-text value="Grooming section"  position="5 7 -1"  scale="5 5 5"  rotation="0 0 0" click-log="checkout"></a-text>
+<a-text value="Daily Essentials section"  position="5 7 9"  scale="5 5 5"  rotation="0 0 0" click-log="checkout"></a-text> -->
 
         <!-- Shampoo bottols store -->
           <a-entity gltf-model="#shampooBottol" position="6 3.3 -0.5" scale="4 4 4" rotation="0 180 0" click-log="1"></a-entity>
