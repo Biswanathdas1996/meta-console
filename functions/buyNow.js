@@ -52,7 +52,41 @@ function buyNow() {
     async function (response) {
       camera.setAttribute("look-controls", { enabled: true });
       buyNowButton.innerHTML = "Buy Now";
+      sessionStorage.clear();
+
+      swal("Order Placed!", "Order placed successfully", "success").then(
+        (value) => {
+          window.location.reload();
+        }
+      );
     },
     clickedProduct?.title
+  );
+}
+
+function cartCheckout() {
+  const buyNowButton = document.getElementById("cartCheckoutButton");
+  buyNowButton.innerHTML = "Please wait ...";
+
+  const addedProducts = sessionStorage.getItem("x-user-cart");
+  const list = JSON.parse(addedProducts);
+  let totalAmount = 0;
+  list?.map(({ price }) => {
+    totalAmount += price;
+  });
+  camera.setAttribute("look-controls", { enabled: false });
+  displayRazorpay(
+    totalAmount,
+    async function (response) {
+      camera.setAttribute("look-controls", { enabled: true });
+      buyNowButton.innerHTML = "Checkout";
+      sessionStorage.clear();
+      swal("Order Placed!", "Order placed successfully", "success").then(
+        (value) => {
+          window.location.reload();
+        }
+      );
+    },
+    "Cart checkout"
   );
 }

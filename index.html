@@ -8,6 +8,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
     </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="MockProduct.js"></script>
     <script src="functions/buyNow.js"></script>
     <script src="functions/addToCart.js"></script>
@@ -137,12 +138,20 @@
     <div class="modal-content" >
       <div class="modal-body">
         <center>
-          <table align="center" id="table" border="1">
-          </table>
+          <div id="list-puntate">
+
+          </div>
+        
           
         </center>
+        <p style="text-align: end;margin: 15px;">Item Total: <b id="totalAmount"></b></p>
+        <p style="text-align: end;margin: 15px;">Tax: <b>0 INR</b></p>
+        <p style="text-align: end;margin: 15px;">Todays Total amount: <b id="totalAmount2"></b></p>
       </div>
       <div class="modal-footer" id="modalFooter">
+        <button type="button" class="btn btn-warning" id="cartCheckoutButton"
+          onclick="cartCheckout()">Checkout
+        </button>
         <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeModal()">Close</button>
       </div>
     </div>
