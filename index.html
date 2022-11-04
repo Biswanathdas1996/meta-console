@@ -40,42 +40,45 @@
       AFRAME.registerComponent("click-log", {
         init: function () {
           this.myFunction = function (i) {
-            console.log("hi",i);
-            const productId = i?.path[0]?.components['click-log']?.data;
-             console.log(productId);
-             if(productId == "checkout"){
+ 
+              console.log("hi", i);
+              const productId = i?.path[0]?.components['click-log']?.data;
+              console.log(productId);
+              if (productId == "checkout") {
                 // window.location.href = 'Checkout.html'
-             }else{
+              } else {
 
-              const addedProducts = sessionStorage.getItem("x-user-cart");
-              const toJsonCart = JSON.parse(addedProducts);
-              const checkCart = checkIfInCart(toJsonCart, productId)
-              const addToCartButton = document.getElementById("addToCartButton");
-               if (checkCart) {
-                 addToCartButton.innerHTML = "Already in Cart";
-                 addToCartButton.disabled = true
-               } else {
-                 addToCartButton.innerHTML = "Add to cart";
-                 addToCartButton.disabled = false
-               }
+                const addedProducts = sessionStorage.getItem("x-user-cart");
+                const toJsonCart = JSON.parse(addedProducts);
+                const checkCart = checkIfInCart(toJsonCart, productId)
+                const addToCartButton = document.getElementById("addToCartButton");
+                if (checkCart) {
+                  addToCartButton.innerHTML = "Already in Cart";
+                  addToCartButton.disabled = true
+                } else {
+                  addToCartButton.innerHTML = "Add to cart";
+                  addToCartButton.disabled = false
+                }
 
 
-               const clickedProduct = products.find((data) => data.id === Number(productId))
-               console.log("clickedProduct", clickedProduct);
-               const productImag = document.getElementById('nftImg')
-               productImag.src = clickedProduct?.image
-               const modalHeader = document.getElementById('modalHeader')
-               modalHeader.innerHTML = clickedProduct?.title
-               const priceElement = document.getElementById('priceElement')
-               priceElement.innerHTML = clickedProduct?.price
-               const description = document.getElementById('description')
-               description.innerHTML = `${clickedProduct?.description}  <br/>  <br/> <p>${clickedProduct?.props}</p>`
-               document.getElementById('buttonModal').click()
-                const buyNowButton= document.getElementById('buyNowButton')
-                 buyNowButton.setAttribute('productId', Number(productId))
-               const camera = document.getElementById('camera');
-               camera.setAttribute('look-controls', { enabled: false })
-             }
+                const clickedProduct = products.find((data) => data.id === Number(productId))
+                console.log("clickedProduct", clickedProduct);
+                const productImag = document.getElementById('nftImg')
+                productImag.src = clickedProduct?.image
+                const modalHeader = document.getElementById('modalHeader')
+                modalHeader.innerHTML = clickedProduct?.title
+                const priceElement = document.getElementById('priceElement')
+                priceElement.innerHTML = clickedProduct?.price
+                const description = document.getElementById('description')
+                description.innerHTML = `${clickedProduct?.description}  <br/>  <br/> <p>${clickedProduct?.props}</p>`
+                document.getElementById('buttonModal').click()
+                const buyNowButton = document.getElementById('buyNowButton')
+                buyNowButton.setAttribute('productId', Number(productId))
+                const camera = document.getElementById('camera');
+                camera.setAttribute('look-controls', { enabled: false })
+              }
+           
+            
           };
           this.el.addEventListener("click", this.myFunction);
         },
@@ -163,13 +166,7 @@
     meshoptDecoderPath: https://unpkg.com/meshoptimizer@0.16.0/meshopt_decoder.js;">
     <a-entity light="type: ambient; color: #BBB"></a-entity>
     <!-- <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity> -->
-      <a-camera id="camera"  position="10 3 10" look-controls="pointerLockEnabled: true">
-        <!-- look-controls="pointerLockEnabled: true" -->
-      <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1"
-        geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: red; shader: flat">
-      </a-entity>
-
-      </a-camera>
+      
       
    
         <a-assets>
@@ -191,8 +188,16 @@
             <a-asset-item id="banner1" src="banner1.glb"></a-asset-item>
             <a-asset-item id="banner2" src="banner2.glb"></a-asset-item>
             <a-asset-item id="icrCream" src="icrCream.glb"></a-asset-item>
+            <a-asset-item id="hand" src="hand.gltf"></a-asset-item>
         </a-assets>
 
+<a-camera id="camera" position="10 3 50" look-controls="pointerLockEnabled: true">
+  <!-- look-controls="pointerLockEnabled: true" -->
+  <a-entity cursor="fuse: false; fuseTimeout: 500" position="0 0 -1"
+    geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: red; shader: flat">
+  </a-entity>
+<!-- <a-entity cursor="fuse: false; fuseTimeout: 500"  gltf-model="#hand" position="0 0 -1" scale="1 1 1" /> -->
+</a-camera>
 
       <a-entity environment="preset: default; fog:0; groundColor: #523c60; groundColor2:#523c60; dressingColor:#196F3D"  scale="20 20 20"></a-entity>
       <a-entity gltf-model="#Stand" position="10 0 0" scale="3 2 2"></a-entity>
@@ -306,8 +311,14 @@
           <a-entity gltf-model="#tropicana1" position="13 3.3 10.5" scale="5 5 5" rotation="0 180 0" click-log="11"></a-entity>
 
           <!-- --------------------- -->
-          <a-entity gltf-model="#tropicana2" position="6 2 10.5" scale="4.5 4.5 4.5" rotation="0 180 0" click-log="12"></a-entity>
-          <a-entity gltf-model="#tropicana2" position="7 2 10.5" scale="4.5 4.5 4.5" rotation="0 180 0" click-log="12"></a-entity>
+          <a-entity gltf-model="#tropicana2"
+          animation__mouseenter="property: position; to: 6 2.5 11.5; dur: 500;  startEvents: mouseenter; loop: false" 
+          animation__mouseleave="property: position; to: 6 2 10.5; dur: 500;  startEvents: mouseleave; loop: false" 
+          position="6 2 10.5" scale="4.5 4.5 4.5" rotation="0 180 0" click-log="12"></a-entity>
+          <a-entity gltf-model="#tropicana2" 
+          animation__mouseenter="property: position; to: 7 2.5 11.5; dur: 500;  startEvents: mouseenter; loop: false" 
+          animation__mouseleave="property: position; to: 7 2 10.5; dur: 500;  startEvents: mouseleave; loop: false" 
+          position="7 2 10.5" scale="4.5 4.5 4.5" rotation="0 180 0" click-log="12"></a-entity>
           <a-entity gltf-model="#tropicana2" position="8 2 10.5" scale="4.5 4.5 4.5" rotation="0 180 0" click-log="12"></a-entity>
           <a-entity gltf-model="#tropicana2" position="9 2 10.5" scale="4.5 4.5 4.5" rotation="0 180 0" click-log="12"></a-entity>
           <a-entity gltf-model="#tropicana2" position="10 2 10.5" scale="4.5 4.5 4.5" rotation="0 180 0" click-log="12"></a-entity>
@@ -316,7 +327,15 @@
           <a-entity gltf-model="#tropicana2" position="13 2 10.5" scale="4.5 4.5 4.5" rotation="0 180 0" click-log="12"></a-entity>
       
           <!-- --------------------- -->
-          <a-entity gltf-model="#tropicana3" position="6 0.5 10.5" scale="4.5 4.5 4.5" rotation="0 180 0" click-log="13"></a-entity>
+          <!-- animation__mouseenter="property: scale; type: scale; from: 4.5 4.5 4.5; to: 6.5 6.5 6.5; startEvents: mouseenter; dur:
+          200"
+          animation__mouseleave="property: scale; type: scale; from: 6.5 6.5 6.5; to: 4.5 4.5 4.5; startEvents: mouseleave; dur:
+          200" -->
+          <a-entity gltf-model="#tropicana3"
+           animation__mouseenter="property: position; to: 6 2.5 11.5; dur: 500;  startEvents: mouseenter; loop: false" 
+           animation__mouseleave="property: position; to: 6 0.5 10.5; dur: 500;  startEvents: mouseleave; loop: false" 
+           position="6 0.5 10.5" scale="4.5 4.5 4.5" rotation="0 180 0" click-log="13"></a-entity>
+
           <a-entity gltf-model="#tropicana3" position="7 0.5 10.5" scale="4.5 4.5 4.5" rotation="0 180 0" click-log="13"></a-entity>
           <a-entity gltf-model="#tropicana3" position="8 0.5 10.5" scale="4.5 4.5 4.5" rotation="0 180 0" click-log="13"></a-entity>
           <a-entity gltf-model="#tropicana3" position="9 0.5 10.5" scale="4.5 4.5 4.5" rotation="0 180 0" click-log="13"></a-entity>

@@ -9,11 +9,11 @@ function constructTable(selector) {
   for (x in myObj) {
     totalAmount += Number(myObj[x].price);
     text +=
-      `<tr style="width: 100%"><td style="display:flex;width: 100%;margin-top:10px;justify-content:start;">` +
-      `<img src="${myObj[x].image}" alt="product" height="120" width="80"/>` +
-      `<div style="margin: 20px;">${myObj[x].title}<div/>` +
-      `<p style="font-weight: bold;">${myObj[x].price} INR</p>` +
-      `<p style="font-weight: bold;">Qty: 1 </p>` +
+      `<tr style="border: 1px solid #80808057;padding: 10px;"><td style="display:flex;width: 100%;margin:10px;justify-content:start;">` +
+      `<img src="${myObj[x].image}" alt="product" height="70" width="50"/>` +
+      `<div style="margin-left: 15px;font-weight: bold;">${myObj[x].title}<div/>` +
+      `<h5 style="font-weight: bold;margin-top: 15px;font-size: 10px;">${myObj[x].price} INR</h5>` +
+      `<h5 style="font-weight: bold;font-size: 10px;">Qty: 1 </h5>` +
       "</td></tr>";
   }
   text += "</table>";
