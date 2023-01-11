@@ -1,24 +1,28 @@
-<?php 
+<?php
 
 include './db/query.php';
-$get_shops_data = select('meta_shop_lists',[
-        "conditions"=>[
-                "status"=>1
-            ],
-           'join' =>array(
-                'land_locations'=>'land_locations_id',
-            ), 
-    ]);
-if($_GET && $_GET['camera_position']){
-    $camera_position = str_replace("%20"," ",$_GET['camera_position']);
-}else{
-    $camera_position = "50 3 95";
+$get_shops_data = select('meta_shop_lists', [
+    'conditions' => [
+        'status' => 1,
+    ],
+    'join' => [
+        'land_locations' => 'land_locations_id',
+    ],
+]);
+if ($_GET && $_GET['camera_position']) {
+    $camera_position = str_replace('%20', ' ', $_GET['camera_position']);
+} else {
+    $camera_position = '50 3 95';
 }
 
-$all_exit_positions=[];
-foreach($get_shops_data as $key=>$pos){
-    array_push($all_exit_positions,$pos['land_locations']['on_exit_camers_position']);
+$all_exit_positions = [];
+foreach ($get_shops_data as $key => $pos) {
+    array_push(
+        $all_exit_positions,
+        $pos['land_locations']['on_exit_camers_position']
+    );
 }
+
 // pr($all_exit_positions);
 // return;
 ?>
@@ -238,19 +242,20 @@ foreach($get_shops_data as $key=>$pos){
                 
                 <div class="row">
                     
-                    <?php
-            foreach($get_shops_data as $key=> $value){
-               
-        ?>
+                    <?php foreach ($get_shops_data as $key => $value) { ?>
                     
                     <div class="col-sm-4 col-md-4 col-lg-4" style="cursor: pointer;" > 
-                        <div class="well"  onclick="moveToLoocation('<?php echo $value['land_locations']['on_exit_camers_position']?>')" style="font-weight:bold;">
-                            <div class="card-body"><?php echo $value['name']?></div>
+                        <div class="well"  onclick="moveToLoocation('<?php echo $value[
+                            'land_locations'
+                        ][
+                            'on_exit_camers_position'
+                        ]; ?>')" style="font-weight:bold;">
+                            <div class="card-body"><?php echo $value[
+                                'name'
+                            ]; ?></div>
                           </div>
                     </div>
-         <?php
-            }
-        ?>            
+         <?php } ?>            
                     
                 </div>
                </div>
@@ -304,75 +309,83 @@ foreach($get_shops_data as $key=>$pos){
          <a-entity light="type: ambient; color: #BBB"></a-entity>
          <!-- <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity> -->
          <a-assets>
-            <!--<a-asset-item id="shop" src="<?php echo $get_shop_data[0]['shop_env_model']; ?>"></a-asset-item>-->
-            <a-asset-item id="shop" src="control/common_models/shop_base.glb"></a-asset-item>
-            <?php
-               foreach($get_shops_data as $key=> $value){ 
-               ?>
+            <!--<a-asset-item id="shop" src="<?php echo $get_shop_data[0][
+                'shop_env_model'
+            ]; ?>"></a-asset-item>-->
+            <a-asset-item id="town" src="control/common_models/town.glb"></a-asset-item>
+
+            <?php foreach ($get_shops_data as $key => $value) { ?>
             <a-asset-item 
-            id="<?php echo $value['name']?>" 
-            src="control/common_models/thumb/<?php echo $value['thumb_model']?>" 
+            id="<?php echo $value['name']; ?>" 
+            src="control/common_models/thumb/<?php echo $value[
+                'thumb_model'
+            ]; ?>" 
             cube-env-map="reflectivity: 1;
                         materials: myPrimaryMaterial, myAccentMaterial;"
             ></a-asset-item>
-            <?php
-               }
-               ?>
+            <?php } ?>
             <img id="skyTexture" src="assets/images/back-city.jpg">
          </a-assets>
          
-         
+         <a-entity gltf-model="#town" position="0 1 150" scale="50 50 50" ></a-entity>
          
          
          <!--default-->
          <!--groundColor: #523c60; groundColor2:#523c60;  dressingColor:#196F3D, skyType: atmosphere-->
-         <a-entity environment="preset: forest; fog:0; "  scale="10 10 10"></a-entity>
+         <a-entity environment="preset: forest; fog:0; " src="#skyTexture"  scale="10 10 10"></a-entity>
+         <!-- <a-entity environment=" fog:0; " scale="10 10 10"></a-entity> -->
+         <!-- <a-entity environment="preset: default; fog:0; groundColor: #d4c63d; groundColor2:#c7b437; dressingColor:#d4c63d"  scale="10 10 10"></a-entity> -->
+
          <a-sky src="#skyTexture" position="0 250 0"></a-sky>
-        <?php
-            foreach($get_shops_data as $key=> $value){
-        ?>
+        <?php foreach ($get_shops_data as $key => $value) { ?>
   
             <a-entity 
                 id="shop_obj"
-                gltf-model="#<?php echo $value['name']?>" 
-                title="<?php echo $value['name']?>"
-                position="<?php echo $value['land_locations']['position']?>" 
-                scale="<?php echo $value['thumb_model_scale']?>" 
-                rotation="<?php echo $value['thumb_model_rotation']?>"
-                click-log="<?php echo $value['id']?>"
+                gltf-model="#<?php echo $value['name']; ?>" 
+                title="<?php echo $value['name']; ?>"
+                position="<?php echo $value['land_locations']['position']; ?>" 
+                scale="<?php echo $value['thumb_model_scale']; ?>" 
+                rotation="<?php echo $value['thumb_model_rotation']; ?>"
+                click-log="<?php echo $value['id']; ?>"
             ></a-entity>
   
  
-       <?php if($value['direct_entry'] == 1) {?>
+       <?php if ($value['direct_entry'] == 1) { ?>
       
             <a-link 
              href="#" 
-             position="<?php echo $value['land_locations']['link_door_position']?>" 
+             position="<?php echo $value['land_locations'][
+                 'link_door_position'
+             ]; ?>" 
              on="collide"
-             rotation="<?php echo $value['land_locations']['link_door_rotation']?>"
-             image="control/common_models/link_thumb/<?php echo $value['land_locations']['link_door_thumb']?>"
+             rotation="<?php echo $value['land_locations'][
+                 'link_door_rotation'
+             ]; ?>"
+             image="control/common_models/link_thumb/<?php echo $value[
+                 'land_locations'
+             ]['link_door_thumb']; ?>"
              peekMode="true"
              
-             camera-listener="<?php echo $value['link']?>"
+             camera-listener="<?php echo $value['link']; ?>"
          ></a-link>
         <?php } ?>   
          
          
          <a-text 
-         value="<?php echo $value['name']?>" 
-         color="<?php echo $value['land_locations']['shop_name_color']?>" 
-         position="<?php echo $value['land_locations']['shop_name_position']?>" 
-         scale="<?php echo $value['land_locations']['shop_name_scale']?>" 
-         rotation="<?php echo $value['land_locations']['shop_name_rotation']?>"
+         value="<?php echo $value['name']; ?>" 
+         color="<?php echo $value['land_locations']['shop_name_color']; ?>" 
+         position="<?php echo $value['land_locations'][
+             'shop_name_position'
+         ]; ?>" 
+         scale="<?php echo $value['land_locations']['shop_name_scale']; ?>" 
+         rotation="<?php echo $value['land_locations'][
+             'shop_name_rotation'
+         ]; ?>"
          id="text_data"></a-text>
 
-        <?php
-            }
-        ?> 
+        <?php } ?> 
             
-         <!--<a-entity gltf-model="#shop" position="0 0 5" scale="15 15 30" ></a-entity>-->
-         <!--<a-entity gltf-model="#shop" position="50 0 5" scale="15 15 30" ></a-entity>-->
-         <!--<a-entity gltf-model="#shop" position="100 0 5" scale="15 15 30" ></a-entity>-->
+   
          
          <a-entity id="head"
             camera="near:0.01;"
