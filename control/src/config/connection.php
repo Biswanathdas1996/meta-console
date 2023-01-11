@@ -1,4 +1,3 @@
-<?php 
-    
-    include("../../../db/connection.php")
+<?php
+include '../../../db/connection.php';
 ?>
