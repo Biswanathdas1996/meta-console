@@ -11,12 +11,12 @@ function constructTable(folderName) {
 
     text +=
       `<tr style="border: 1px solid #80808057;padding: 10px;"><td style="display:flex;width: 100%;margin:10px;justify-content:start;">` +
-      `<model-viewer camera-controls alt="Model" src="../${folderName}/models/${myObj[x].glb_model}" shadow-intensity="1" camera-controls touch-action="pan-y" style="height:150px; width:150px; border:1px solid;">
+      `<model-viewer camera-controls alt="Model" src="../${folderName}/models/${myObj[x].glb_model}" shadow-intensity="1" camera-controls touch-action="pan-y" style="height:150px; width:150px; ">
                         </model-viewer>` +
       `<div style="margin-left: 15px;font-weight: bold;">${myObj[x].name}<div/>` +
       `<h5 style="font-weight: bold;margin-top: 15px;font-size: 10px;">${myObj[x].price} INR</h5>` +
       `<h5 style="font-weight: bold;font-size: 10px;">Qty: 1 </h5>` +
-      "</td></tr>";
+      "</td><td><button type='button' class='btn btn-danger' ><span class='glyphicon glyphicon-trash'></span></button> <button type='button' class='btn btn-secondary' >Save for latter</button></td></tr>";
   }
   text += "</table>";
   document.getElementById("totalAmount").innerHTML = `${totalAmount} INR`;

@@ -1,13 +1,17 @@
 <button id="buttonModal" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"
          style="display: none;">Open Modal</button>
       <div class="modal fade" id="myModal" role="dialog">
-         <div class="modal-dialog">
+         <div class="modal-dialog modal-lg">
             <!-- Modal content-->
             <div class="modal-content" style="background-color: #555555d4;color: white;">
                <div class="modal-body">
                   <center>
-                     <!--<img id="nftImg" style="max-height: 280px;width: auto;border: 10px solid;border-radius: 5px;" />-->
-                     <h4 class="modal-title" id="modalHeader" style=" font-weight: bold;margin-top: 15px;">Product Title</h4>
+                     <div class="row">
+                        <div class="col-md-6 col-sm-6 col-lg-6" style="margin-top: 5rem;">
+                           <div id="desc_model"></div> 
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6">
+                        <h4 class="modal-title" id="modalHeader" style=" font-weight: bold;margin-top: 15px;">Product Title</h4>
                      <h4 style=" margin-bottom: 25px;">
                         Price: 
                         <b style="color:#EB984E" id="priceElement">
@@ -50,6 +54,10 @@
                            </tr>
                         </tbody>
                      </table>
+                        </div>
+                     </div>
+                  
+                     
                      <a id="redirectLink" target="_blank" style="cursor: pointer;">
                      <button id="addToCartButton" type="button" class="btn btn-primary" style="padding: 12px;margin-right: 10px;" onclick="addToCart('<?php echo $table_name; ?>')">Add to cart</button>
                      </a>

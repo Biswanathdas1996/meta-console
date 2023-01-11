@@ -39,6 +39,7 @@
                     };
                     
                    const tableName = "<?php echo $table_name; ?>";
+                   
                    await fetch(`${url}meta-console/control/api/GetAllProduct.php?table=${tableName}`, requestOptions)
                       .then(response => response.json())
                       .then(result => {
@@ -58,8 +59,17 @@
                    const priceElement = document.getElementById('priceElement')
                    priceElement.innerHTML = clickedProduct?.price
                    const description = document.getElementById('description')
-                   description.innerHTML = `${clickedProduct?.desc}`
+                   description.innerHTML = `${clickedProduct?.description}`
                    document.getElementById('buttonModal').click()
+
+                   const folderName = "<?php echo $folder_name; ?>";
+                   const productMpdel = `<model-viewer camera-controls alt="Model" src="../${folderName}/models/${clickedProduct?.glb_model}" shadow-intensity="1" camera-controls touch-action="pan-y" style="height:400px; margin-top:3rem;">
+                        </model-viewer>`;
+
+                  
+                   document.getElementById("desc_model").innerHTML = productMpdel;
+
+
                    const buyNowButton = document.getElementById('buyNowButton')
                    buyNowButton.setAttribute('productId', Number(productId))
                    const camera = document.getElementById('camera');
