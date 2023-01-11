@@ -1,9 +1,10 @@
 <?php
- include("../../src/config/includes.php"); echo Layout::APILayout();
- $get_data = select($table_name);
+include '../../src/config/includes.php';
+echo Layout::APILayout();
+$get_data = select($table_name);
 ?>
 
-<?php include "../../header.php"; ?>
+<?php include '../../header.php'; ?>
 <style>
 .back-g {
   background-image: url('../../../assets/gifs/metaverse-shopping-1.jpg');
@@ -52,19 +53,21 @@
                         </tr>
                      </thead>
                      <tbody>
-                        <?php
-                           foreach($get_data as $key=> $value){ 
-                           ?>
+                        <?php foreach ($get_data as $key => $value) { ?>
                         <tr>
                            <td style="width:200px;">
                                <center>
                                     <div style="border:0px solid black">
-                                        <model-viewer camera-controls alt="Model" src="models/<?php echo $value['glb_model']; ?>" style="height:100px;"></model-viewer>
+                                        <model-viewer camera-controls alt="Model" src="models/<?php echo $value[
+                                            'glb_model'
+                                        ]; ?>" style="height:100px;"></model-viewer>
                                     </div>
                                     <b> <?php echo $value['name']; ?></b> 
                                </center>
                             </td>
-                           <td style="width:100px;"><?php echo $value['price']; ?> <small>INR</small></td>
+                           <td style="width:100px;"><?php echo $value[
+                               'price'
+                           ]; ?> <small>INR</small></td>
                            <td><?php echo $value['description']; ?></td>
                            <td><b><?php echo $value['qty']; ?></b></td>
                            <!--<td><?php echo $value['scale']; ?></td>-->
@@ -75,7 +78,9 @@
                               <a href="edit.php?id=<?php echo $value['id']; ?>">
                               <button type="button" class="btn btn-info" style="margin:10px;"><i class="fa fa-edit"></i></button>
                               </a>
-                              <a href="delete.php?id=<?php echo $value['id']; ?>">
+                              <a href="delete.php?id=<?php echo $value[
+                                  'id'
+                              ]; ?>">
                               <button type="button" class="btn btn-danger" style="margin:10px;"><i class="fa fa-trash"></i></button>
                               </a>
                            </td>

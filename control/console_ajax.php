@@ -19,7 +19,7 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
 
         if (isset($_POST['blank_name'])) {
             // ---------------- clone index
-            $file = 'src/prototype/sample/index.php';
+            $file = 'src/prototype/index.php';
             $newpage = round(microtime(true));
 
             $table_name = $newpage . '_meta_product_table';
@@ -69,7 +69,7 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
 
             // ------------------------copy add new product-------------------------------
 
-            $file = 'src/prototype/sample/add.php';
+            $file = 'src/prototype/add.php';
             if (!copy($file, 'pages/' . $newpage . '/add.php')) {
                 echo 'failed to copy';
             }
@@ -91,7 +91,7 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
             // -----------------------------------------------------------
             // ------------------------copy List of all products-------------------------------
 
-            $file_list = 'src/prototype/sample/list.php';
+            $file_list = 'src/prototype/list.php';
             if (!copy($file_list, 'pages/' . $newpage . '/list.php')) {
                 echo 'failed to copy';
             }
@@ -112,7 +112,7 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
             // -----------------------------------------------------------
             // ------------------------copy Edit products-------------------------------
 
-            $file_edit = 'src/prototype/sample/edit.php';
+            $file_edit = 'src/prototype/edit.php';
             if (!copy($file_edit, 'pages/' . $newpage . '/edit.php')) {
                 echo 'failed to copy';
             }
@@ -133,7 +133,7 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
             // -----------------------------------------------------------
             // ------------------------copy Delete products-------------------------------
 
-            $file_delete = 'src/prototype/sample/delete.php';
+            $file_delete = 'src/prototype/delete.php';
             if (!copy($file_delete, 'pages/' . $newpage . '/delete.php')) {
                 echo 'failed to copy';
             }
@@ -154,7 +154,7 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
             // -----------------------------------------------------------
             // ------------------------copy Orders flie-------------------------------
 
-            $file_orders = 'src/prototype/sample/orders.php';
+            $file_orders = 'src/prototype/orders.php';
             if (!copy($file_orders, 'pages/' . $newpage . '/orders.php')) {
                 echo 'failed to copy';
             }
@@ -175,7 +175,7 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
             // -----------------------------------------------------------
             // ------------------------copy Visitor Lead flie-------------------------------
 
-            $file_lead = 'src/prototype/sample/visitors.php';
+            $file_lead = 'src/prototype/visitors.php';
             if (!copy($file_lead, 'pages/' . $newpage . '/visitors.php')) {
                 echo 'failed to copy';
             }
@@ -196,7 +196,7 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
             // -----------------------------------------------------------
             // ------------------------copy settings.php  flie-------------------------------
 
-            $file_settings = 'src/prototype/sample/settings.php';
+            $file_settings = 'src/prototype/settings.php';
             if (!copy($file_settings, 'pages/' . $newpage . '/settings.php')) {
                 echo 'failed to copy';
             }

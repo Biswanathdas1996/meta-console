@@ -1,7 +1,7 @@
 <?php
-include "../../src/config/includes.php";
+include '../../src/config/includes.php';
 echo Layout::APILayout();
-$new_folder_name = str_replace("_meta_product_table", "", $table_name);
+$new_folder_name = str_replace('_meta_product_table', '', $table_name);
 
 function folder_exist($folder)
 {
@@ -12,26 +12,25 @@ function folder_exist($folder)
     return ($path !== false and is_dir($path)) ? $path : false;
 }
 
-if (isset($_FILES["image"])) {
+if (isset($_FILES['image'])) {
     $errors = [];
-    $file_name = $_FILES["image"]["name"];
-    $file_size = $_FILES["image"]["size"];
-    $file_tmp = $_FILES["image"]["tmp_name"];
-    $file_type = $_FILES["image"]["type"];
-   
-   $temp = explode(".", $_FILES["file"]["name"]);
-   
-   $file_data = round(microtime(true)) . '.' .'glb';
+    $file_name = $_FILES['image']['name'];
+    $file_size = $_FILES['image']['size'];
+    $file_tmp = $_FILES['image']['tmp_name'];
+    $file_type = $_FILES['image']['type'];
 
-   
+    $temp = explode('.', $_FILES['file']['name']);
+
+    $file_data = round(microtime(true)) . '.' . 'glb';
+
     if (empty($errors) == true) {
-        if (folder_exist("models")) {
-            copy($file_tmp, "models/" . $file_data);
-            echo "Success";
+        if (folder_exist('models')) {
+            copy($file_tmp, 'models/' . $file_data);
+            echo 'Success';
         } else {
-            if (mkdir("models/" . $newpage)) {
-                copy($file_tmp, "models/" . $file_data);
-                echo "Success";
+            if (mkdir('models/' . $newpage)) {
+                copy($file_tmp, 'models/' . $file_data);
+                echo 'Success';
             }
         }
     } else {
@@ -42,27 +41,27 @@ if (isset($_FILES["image"])) {
 if ($_POST) {
     pr($_POST);
     $data = [
-        "data" => [
-            "name" => $_POST["name"],
-            "price" => $_POST["price"],
-            "description" => $_POST["desc"],
-            "qty" => $_POST["qty"],
-            "glb_model" => $file_data,
-            "tag" => $file_data,
-            "scale" => $_POST["scale"],
-            "rotation" => $_POST["rotation"],
-            "location_id" => $_POST["location_id"],
-            "status" => 0,
+        'data' => [
+            'name' => $_POST['name'],
+            'price' => $_POST['price'],
+            'description' => $_POST['desc'],
+            'qty' => $_POST['qty'],
+            'glb_model' => $file_data,
+            'tag' => $file_data,
+            'scale' => $_POST['scale'],
+            'rotation' => $_POST['rotation'],
+            'location_id' => $_POST['location_id'],
+            'status' => 0,
         ],
     ];
     $insert_data = insert($table_name, $data);
-    header("Location: list.php");
+    header('Location: list.php');
     die();
 }
 ?>
 
 
-<?php include "../../header.php"; ?>
+<?php include '../../header.php'; ?>
 
 <style>
 .back-g {
