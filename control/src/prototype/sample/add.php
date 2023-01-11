@@ -2,7 +2,6 @@
 include '../../src/config/includes.php';
 echo Layout::APILayout();
 $new_folder_name = str_replace('_meta_product_table', '', $table_name);
-
 function folder_exist($folder)
 {
     // Get canonicalized absolute pathname
@@ -11,18 +10,14 @@ function folder_exist($folder)
     // If it exist, check if it's a directory
     return ($path !== false and is_dir($path)) ? $path : false;
 }
-
 if (isset($_FILES['image'])) {
     $errors = [];
     $file_name = $_FILES['image']['name'];
     $file_size = $_FILES['image']['size'];
     $file_tmp = $_FILES['image']['tmp_name'];
     $file_type = $_FILES['image']['type'];
-
     $temp = explode('.', $_FILES['file']['name']);
-
     $file_data = round(microtime(true)) . '.' . 'glb';
-
     if (empty($errors) == true) {
         if (folder_exist('models')) {
             copy($file_tmp, 'models/' . $file_data);
@@ -58,42 +53,36 @@ if ($_POST) {
     header('Location: list.php');
     die();
 }
+
+include '../../header.php';
 ?>
-
-
-<?php include '../../header.php'; ?>
-
 <style>
-.back-g {
-  background-image: url('../../../assets/gifs/6201b4e82e1ed1bf64e0d9a8_metaverse brands copy.jpeg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-  height: 100%;
-}
-.Rectangle-242 {
-    /*position: absolute;*/
-    top: 400px;
-    /*left: 80px;*/
-    padding: 50px;
-    border-radius: 30px;
-    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
-    background-color: #fff;
-}
-.form-control{
-    
-    padding: 12px !important;
-    height: 53px;
-    border-radius: 13px !important;
-}
-.info_ui{
-    
-    font-size: 30px !important;
-    padding: 10px !important;
-
-}
+   .back-g {
+   background-image: url('../../../assets/gifs/6201b4e82e1ed1bf64e0d9a8_metaverse brands copy.jpeg');
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: 100% 100%;
+   height: 100%;
+   }
+   .Rectangle-242 {
+   /*position: absolute;*/
+   top: 400px;
+   /*left: 80px;*/
+   padding: 50px;
+   border-radius: 30px;
+   box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+   background-color: #fff;
+   }
+   .form-control{
+   padding: 12px !important;
+   height: 53px;
+   border-radius: 13px !important;
+   }
+   .info_ui{
+   font-size: 30px !important;
+   padding: 10px !important;
+   }
 </style>
-
 <div class="main-content back-g">
    <div class="container-fluid content-top-gap">
       <div class="row">
@@ -170,6 +159,5 @@ if ($_POST) {
       </div>
    </div>
 </div>
-
 </body>
 </html>

@@ -43,30 +43,25 @@ $order_id_array = extract_order_id($get_data);
 //  pr($order_id_array);
 //  return;
 ?>
-
 <?php include '../../header.php'; ?>
-
-
 <style>
-.back-g {
-  background-image: url('../../../assets/gifs/metaverse-shopping-1.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-  height: 400px;
-}
-.Rectangle-242 {
-    /*position: absolute;*/
-    top: 300px;
-    /*left: 80px;*/
-   
-    padding: 50px;
-    border-radius: 30px;
-    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
-    background-color: #fff;
-}
+   .back-g {
+   background-image: url('../../../assets/gifs/metaverse-shopping-1.jpg');
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: 100% 100%;
+   height: 400px;
+   }
+   .Rectangle-242 {
+   /*position: absolute;*/
+   top: 300px;
+   /*left: 80px;*/
+   padding: 50px;
+   border-radius: 30px;
+   box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+   background-color: #fff;
+   }
 </style>
-
 <div class="main-content">
    <div class="container-fluid content-top-gap back-g mb-5">
       <section class="people">
@@ -85,7 +80,7 @@ $order_id_array = extract_order_id($get_data);
                   <p class="card-text mb-3" style="width:300px; font-size:14px; "><b>Delivery Address:</b> <?php echo $order_data[
                       $value
                   ][0]['address']; ?></p>
-                    <table class="table table-striped">
+                  <table class="table table-striped">
                      <thead style="background: #d85604;color: white;">
                         <tr>
                            <th>Item</th>
@@ -102,24 +97,19 @@ $order_id_array = extract_order_id($get_data);
                             //  pr($items);
                             ?>
                         <tr>
-                            <td style="width:200px;">
-                               <center>
-                                    
-                                     <div style="border:0px solid black; ">
-                                         <model-viewer camera-controls alt="Model" src="models/<?php echo $items[
-                                             $table_name
-                                         ][
-                                             'glb_model'
-                                         ]; ?>" style="height:100px;">
-                                         </model-viewer>
-                                      </div>
-                                    <b> <?php echo $items[$table_name][
-                                        'name'
-                                    ]; ?></b> 
-                               </center>
-                            </td>
-                         
-                        
+                           <td style="width:200px;">
+                              <center>
+                                 <div style="border:0px solid black; ">
+                                    <model-viewer camera-controls alt="Model" src="models/<?php echo $items[
+                                        $table_name
+                                    ]['glb_model']; ?>" style="height:100px;">
+                                    </model-viewer>
+                                 </div>
+                                 <b> <?php echo $items[$table_name][
+                                     'name'
+                                 ]; ?></b> 
+                              </center>
+                           </td>
                            <td><?php echo $items[$table_name][
                                'description'
                            ]; ?></td>
@@ -141,11 +131,9 @@ $order_id_array = extract_order_id($get_data);
                </div>
             </div>
             <?php } ?>
-           
          </section>
       </section>
    </div>
 </div>
-
 </body>
 </html>

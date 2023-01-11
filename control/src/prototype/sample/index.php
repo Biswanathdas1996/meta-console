@@ -16,7 +16,6 @@ include 'utils/dataSource.php';
       <?php include 'components/cart_modal.php'; ?>
       <?php include 'components/description_modal.php'; ?>
       <a-scene>
-         
             <?php
             include 'AframeHelper/assetLoader.php';
             include 'AframeHelper/environment.php';
