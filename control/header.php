@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>MetsShop</title>
   <!-- Template CSS -->
-  <link rel="stylesheet" href="https://sosal.in/meta-console/assets/css/style-starter.css">
+  <link rel="stylesheet" href="../../../assets/css/style-starter.css">
   <!-- google fonts -->
   <link href="//fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

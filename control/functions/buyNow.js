@@ -65,10 +65,7 @@ async function buyNow(tableName) {
     redirect: "follow",
   };
 
-  await fetch(
-    `https://sosal.in/meta-console/control/api/GetAllProduct.php?table=${tableName}`,
-    requestOptions
-  )
+  await fetch(`../api/GetAllProduct.php?table=${tableName}`, requestOptions)
     .then((response) => response.json())
     .then((result) => {
       console.log(result);
@@ -134,7 +131,7 @@ function itemDecrease(id, tableName, razorpay_order_id) {
   };
 
   fetch(
-    `https://sosal.in/meta-console/control/api/confirmOrder.php?id=${id}&table=${tableName}&order_id=${razorpay_order_id}`,
+    `../api/confirmOrder.php?id=${id}&table=${tableName}&order_id=${razorpay_order_id}`,
     requestOptions
   )
     .then((response) => response.text())
