@@ -1,6 +1,6 @@
 <!-- --------------------------------cart modal --------------------- -->
 <div class="hidden-xs" style='position: fixed; top: 10px; width:100%; text-align: right; z-index: 1;'>
-         <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myCartModal" style="margin-right:20px;" onclick = "constructTable('#table')">
+         <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myCartModal" style="margin-right:20px;" onclick = "constructTable(<?php echo $folder_name; ?>)">
          <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Cart
          </button>
       </div>
@@ -11,7 +11,7 @@
                <div class="modal-body">
                   <center>
                      <div id="list-puntate">
-                     </div>
+                     </div> 
                   </center>
                   <p style="text-align: end;margin: 15px;">Item Total: <b id="totalAmount"></b></p>
                   <p style="text-align: end;margin: 15px;">Tax: <b>0 INR</b></p>

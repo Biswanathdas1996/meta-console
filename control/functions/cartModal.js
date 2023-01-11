@@ -1,4 +1,4 @@
-function constructTable(selector) {
+function constructTable(folderName) {
   const addedProducts = sessionStorage.getItem("x-user-cart");
   const list = JSON.parse(addedProducts);
   console.log("cart data ---->", list);
@@ -8,9 +8,10 @@ function constructTable(selector) {
   let totalAmount = 0;
   for (x in myObj) {
     totalAmount += Number(myObj[x].price);
+
     text +=
       `<tr style="border: 1px solid #80808057;padding: 10px;"><td style="display:flex;width: 100%;margin:10px;justify-content:start;">` +
-      `<model-viewer camera-controls alt="Model" src="${myObj[x].glb_model}" shadow-intensity="1" camera-controls touch-action="pan-y" style="height:150px; width:150px; border:1px solid;">
+      `<model-viewer camera-controls alt="Model" src="../${folderName}/models/${myObj[x].glb_model}" shadow-intensity="1" camera-controls touch-action="pan-y" style="height:150px; width:150px; border:1px solid;">
                         </model-viewer>` +
       `<div style="margin-left: 15px;font-weight: bold;">${myObj[x].name}<div/>` +
       `<h5 style="font-weight: bold;margin-top: 15px;font-size: 10px;">${myObj[x].price} INR</h5>` +
