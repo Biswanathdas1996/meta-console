@@ -23,7 +23,9 @@ foreach ($get_shops_data as $key => $pos) {
     );
 }
 
-// pr($all_exit_positions);
+$get_all_land_locations = select('land_locations');
+
+// pr($get_all_land_locations);
 // return;
 ?>
 <html>
@@ -313,6 +315,7 @@ foreach ($get_shops_data as $key => $pos) {
                 'shop_env_model'
             ]; ?>"></a-asset-item>-->
             <a-asset-item id="town" src="control/common_models/town.glb"></a-asset-item>
+            <a-asset-item id="rent_model" src="control/common_models/rent_model.glb"></a-asset-item>
 
             <?php foreach ($get_shops_data as $key => $value) { ?>
             <a-asset-item 
@@ -337,6 +340,27 @@ foreach ($get_shops_data as $key => $pos) {
          <!-- <a-entity environment="preset: default; fog:0; groundColor: #d4c63d; groundColor2:#c7b437; dressingColor:#d4c63d"  scale="10 10 10"></a-entity> -->
 
          <a-sky src="#skyTexture" position="0 250 0"></a-sky>
+
+
+<?php foreach ($get_all_land_locations as $key => $land_val) { ?>
+    <a-entity gltf-model="#rent_model" position="<?php echo $land_val[
+        'position'
+    ]; ?>" scale="60 120 60" ></a-entity>
+    
+<a-text 
+         value="Plot no #<?php echo $land_val['id']; ?>" 
+         color="red" 
+         position="<?php echo $land_val['marker_position']; ?>" 
+         scale="5 5 5" 
+         ></a-text>
+
+
+ <?php } ?>
+
+        
+
+
+
         <?php foreach ($get_shops_data as $key => $value) { ?>
   
             <a-entity 
