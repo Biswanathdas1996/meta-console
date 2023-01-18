@@ -8,6 +8,7 @@ include './components/utils/dataSource.php';
       include './components/helpers/cdn.php';
       include './components/helpers/css.php';
       include './components/utils/events.php';
+      
       ?>
    </head>
    <body>
