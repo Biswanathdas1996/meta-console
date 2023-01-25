@@ -103,6 +103,7 @@ function cartCheckout(tableName) {
   console.log("---->list", list);
 
   camera.setAttribute("look-controls", { enabled: false });
+
   displayRazorpay(
     totalAmount,
     async function (response) {
@@ -131,7 +132,7 @@ function itemDecrease(id, tableName, razorpay_order_id) {
   };
 
   fetch(
-    `../api/confirmOrder.php?id=${id}&table=${tableName}&order_id=${razorpay_order_id}`,
+    `../../api/confirmOrder.php?id=${id}&table=${tableName}&order_id=${razorpay_order_id}`,
     requestOptions
   )
     .then((response) => response.text())
@@ -139,7 +140,7 @@ function itemDecrease(id, tableName, razorpay_order_id) {
       swal("Order Placed!", "Order placed successfully", "success").then(
         (value) => {
           sessionStorage.clear();
-          window.location.reload();
+          // window.location.reload();
         }
       );
     })

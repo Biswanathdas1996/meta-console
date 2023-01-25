@@ -6,8 +6,8 @@
          AFRAME.registerComponent("click-log", {
            init: function () {
              this.myFunction = async function (i) {
-                 console.log("hi", i?.detail?.distance);
-                 const productId = i?.path[0]?.components['click-log']?.data;
+                 console.log("===isrcElement=====>", i);
+                 const productId = i?.srcElement?.components['click-log']?.data;
                  console.log(productId);
                  const url = "<?php echo $url; ?>"
                  if (productId == "shopInside") {

@@ -1,7 +1,7 @@
         
         <a-entity light="type: ambient; color: #BBB"></a-entity>
          <!-- <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity> -->
-        <a-entity gltf-model="#town" position="0 1 150" scale="50 50 50" ></a-entity>
+        <!-- <a-entity gltf-model="#town" position="0 1 150" scale="50 50 50" ></a-entity> -->
          <!--default-->
          <!--groundColor: #523c60; groundColor2:#523c60;  dressingColor:#196F3D, skyType: atmosphere-->
          <a-entity environment="preset: forest; fog:0; " src="#skyTexture"  scale="10 10 10"></a-entity>
