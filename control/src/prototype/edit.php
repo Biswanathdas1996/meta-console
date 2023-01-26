@@ -1,3 +1,3 @@
 <?php
-include '../../src/prototype/sample/index.php';
+include '../../src/prototype/sample/edit.php';
 ?>

@@ -8,7 +8,6 @@ include './components/utils/dataSource.php';
       include './components/helpers/cdn.php';
       include './components/helpers/css.php';
       include './components/utils/events.php';
-      
       ?>
    </head>
    <body>
@@ -18,12 +17,16 @@ include './components/utils/dataSource.php';
          <?php include './components/AframeHelper/environment.php'; ?>
          <?php include './components/AframeHelper/plotMarker.php'; ?>
          <?php include './components/AframeHelper/shops.php'; ?>
-         <a-entity id="rig" movement-controls="constrainToNavMesh: true;" foo>
+         <a-entity id="rig" movement-controls="constrainToNavMesh: true;" movement-controls kinematic-body shop-colide-class>
+
+     
             <!--$camera_position -->
-            <a-camera  
+            <a-camera
+            class="collidable"  
             id="camera" 
             position="<?php echo $camera_position; ?>" 
             look-controls="pointerLockEnabled: true" 
+            dynamic-body
             limit-my-distance
             >
                <a-entity cursor="fuse: false; fuseTimeout: 500" position="0 0 -1"

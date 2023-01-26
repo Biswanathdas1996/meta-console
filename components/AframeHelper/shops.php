@@ -2,12 +2,22 @@
   
   <a-entity 
       id="shop_obj"
+      aabb-collider="objects:.collidable"
       gltf-model="#<?php echo $value['name']; ?>" 
       title="<?php echo $value['name']; ?>"
       position="<?php echo $value['land_locations']['position']; ?>" 
       scale="<?php echo $value['thumb_model_scale']; ?>" 
       rotation="<?php echo $value['thumb_model_rotation']; ?>"
       click-log="<?php echo $value['id']; ?>"
+      
+      body="type: static; mass: 5; shape: none;"
+          shape__main="shape: cylinder;
+                       height: 0.36;
+                       radiusTop: 0.24;
+                       radiusBottom: 0.24;"
+          shape__handle="shape: box;
+                         halfExtents: 0.15 0.18 0.04;
+                         offset: 0.4 0 0;"
   ></a-entity>
 
 
@@ -42,6 +52,14 @@ id="text_data"></a-text>
         
         sessionStorage.clear();
       
+        AFRAME.registerComponent('shop-colide-class', {
+          init: function() {
+            this.el.addEventListener('collide', function(e) {
+              console.log('Player has collided with ', e.detail.body.el);
+            });
+          }
+        })
+
       
          AFRAME.registerComponent("click-log", {
            init: function () {

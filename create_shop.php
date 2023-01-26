@@ -15,8 +15,7 @@ $actual_link =
         ? 'https'
         : 'http') .
     '://' .
-    $_SERVER['HTTP_HOST'] .
-    'meta-console';
+    $_SERVER['HTTP_HOST'];
 
 // pr($get_location);
 // return;
@@ -268,12 +267,17 @@ body{
     e.preventDefault(); // avoid to execute the actual submit of the form.
     var form = $(this);
     var link = "<?php $actual_link; ?>"
+
+   
+
+
     $.ajax({
       type: "POST",
       url: "control/console_ajax.php",
       data: form.serialize(), // serializes the form's elements.
       success: function (data) {
 
+        
         swal("Page created successfully!  What do you want to do?", {
           icon: "success",
           buttons: {
@@ -285,10 +289,13 @@ body{
           },
         })
           .then((value) => {
+            const redirect_url =  data + "/settings.php";
+            
             switch (value) {
 
               case "catch":
-                window.location.replace(link + "/" + data + "/settings.php");
+                // window.location.replace(redirect_url);
+                window.location.href = `./${redirect_url}`;
                 break;
 
               default:

@@ -11,3 +11,7 @@
       <script src="https://unpkg.com/videojs-contrib-dash/dist/videojs-dash.js"></script> 
       <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
       <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+      <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
+
+      <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.js"></script>
+<script src="https://n5ro.github.io/aframe-physics-system/dist/aframe-physics-system.js"></script>
