@@ -29,17 +29,17 @@
                   scale="<?php echo $value['scale']; ?>" 
                   rotation="<?php echo $value['rotation']; ?>" 
                   click-log="<?php echo $value['id']; ?>"
-                  
+                  animation__mouseenter="property: position; to: <?php echo $x; ?> <?php echo $value[
+     'shop_meta_products_loocation'
+ ]['zoom_y']; ?> <?php echo $value['shop_meta_products_loocation'][
+     'zoom_z'
+ ]; ?>; dur: 500;  startEvents: mouseenter; loop: false" 
+                  animation__mouseleave="property: position; to: <?php echo $x; ?> <?php echo $y; ?> <?php echo $z; ?>; dur: 500;  startEvents: mouseleave; loop: false"
+
                >
                </a-entity>
                <?php
     }
 } ?>
 
-<!-- 
-animation__mouseenter="property: position; to: <?php echo $x; ?> <?php echo $value[
-     'shop_meta_products_loocation'
- ]['zoom_y']; ?> <?php echo $value['shop_meta_products_loocation'][
-     'zoom_z'
- ]; ?>; dur: 500;  startEvents: mouseenter; loop: false" 
-                  animation__mouseleave="property: position; to: <?php echo $x; ?> <?php echo $y; ?> <?php echo $z; ?>; dur: 500;  startEvents: mouseleave; loop: false" -->
+

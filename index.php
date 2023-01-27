@@ -12,21 +12,26 @@ include './components/utils/dataSource.php';
    </head>
    <body>
        <?php include './components/helpers/modals.php'; ?>
-      <a-scene physics="gravity: 0">
+      <a-scene  
+      physics="debug: true">
+
          <?php include './components/AframeHelper/assetLoader.php'; ?>
          <?php include './components/AframeHelper/environment.php'; ?>
          <?php include './components/AframeHelper/plotMarker.php'; ?>
          <?php include './components/AframeHelper/shops.php'; ?>
-         <a-entity id="rig" movement-controls="constrainToNavMesh: true;" movement-controls kinematic-body shop-colide-class>
+
+
+
+
+         <a-entity id="rig" movement-controls="constrainToNavMesh: true;" >
 
      
             <!--$camera_position -->
             <a-camera
-            class="collidable"  
             id="camera" 
             position="<?php echo $camera_position; ?>" 
             look-controls="pointerLockEnabled: true" 
-            dynamic-body
+           ammo-body="type: dynamic;"
             limit-my-distance
             >
                <a-entity cursor="fuse: false; fuseTimeout: 500" position="0 0 -1"
@@ -39,5 +44,16 @@ include './components/utils/dataSource.php';
          </a-entity>
          </a-entity>
       </a-scene>
+
+
+      <script>
+         const camera = document.querySelector("a-camera");
+camera.addEventListener("raycaster-intersection", function(e) {
+  if (e.detail.intersections[0]) {
+    console.log("----colide")
+   //  camera.setAttribute("position", e.detail.intersections[0].point);
+  }
+});
+      </script>
    </body>
 </html>
