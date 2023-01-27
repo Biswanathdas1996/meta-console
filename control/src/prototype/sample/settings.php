@@ -29,7 +29,7 @@ if ($_POST) {
                 print_r($errors);
             }
         }
-
+        // update video
         $file_data_videos_name = $_POST['wall_video_name'];
         if ($_FILES['wall_video']['error'] === 0) {
             $errors = [];
@@ -51,22 +51,76 @@ if ($_POST) {
             }
         }
 
+        $update_data = [
+            'name' => $_POST['blank_name'],
+            'thumb_model' => $thumb_model,
+            // "shop"=> $_POST['shop_env_model'],
+            // "shop_env_model"=> $_POST['shop_env_model'],
+            'rack' => $_POST['rack'],
+            'stand_qty' => $_POST['stand_qty'],
+            'land_locations_id' => $_POST['position'],
+            'thumb_model_scale' => $_POST['thumb_model_scale'],
+            'thumb_model_rotation' => $_POST['thumb_model_rotation'],
+            'wall_video' => $file_data_videos_name,
+            'direct_entry' => $_POST['direct_entry'],
+        ];
+
+        // update right wall image
+        $file_data_right_wall_banner_name = $_POST['right_wall_banner_name'];
+        if ($_FILES['right_wall_banner']['error'] === 0) {
+            $errors = [];
+            $file_name = $_FILES['right_wall_banner']['name'];
+            $file_size = $_FILES['right_wall_banner']['size'];
+            $file_tmp = $_FILES['right_wall_banner']['tmp_name'];
+            $file_type = $_FILES['right_wall_banner']['type'];
+            $temp = explode('.', $_FILES['file']['name']);
+            $file_data_right_wall_banner =
+                round(microtime(true)) . '_right.' . 'png';
+            if (empty($errors) == true) {
+                copy(
+                    $file_tmp,
+                    '../../common_models/banners/' .
+                        $file_data_right_wall_banner
+                );
+                $file_data_right_wall_banner_name = $file_data_right_wall_banner;
+
+                $update_data[
+                    'right_wall_banner'
+                ] = $file_data_right_wall_banner;
+                echo 'Success model upload';
+            } else {
+                print_r($errors);
+            }
+        }
+        // update left wall image
+        $file_data_left_wall_banner_name = $_POST['left_wall_banner_name'];
+        if ($_FILES['left_wall_banner']['error'] === 0) {
+            $errors = [];
+            $file_name = $_FILES['left_wall_banner']['name'];
+            $file_size = $_FILES['left_wall_banner']['size'];
+            $file_tmp = $_FILES['left_wall_banner']['tmp_name'];
+            $file_type = $_FILES['left_wall_banner']['type'];
+            $temp = explode('.', $_FILES['file']['name']);
+            $file_data_left_wall_banner =
+                round(microtime(true)) . '_left.' . 'png';
+            if (empty($errors) == true) {
+                copy(
+                    $file_tmp,
+                    '../../common_models/banners/' . $file_data_left_wall_banner
+                );
+                $file_data_left_wall_banner_name = $file_data_left_wall_banner;
+                echo 'Success model upload';
+
+                $update_data['left_wall_banner'] = $file_data_left_wall_banner;
+            } else {
+                print_r($errors);
+            }
+        }
+
         $insert_shop_data = update(
             'meta_shop_lists',
             [
-                'data' => [
-                    'name' => $_POST['blank_name'],
-                    'thumb_model' => $thumb_model,
-                    // "shop"=> $_POST['shop_env_model'],
-                    // "shop_env_model"=> $_POST['shop_env_model'],
-                    'rack' => $_POST['rack'],
-                    'stand_qty' => $_POST['stand_qty'],
-                    'land_locations_id' => $_POST['position'],
-                    'thumb_model_scale' => $_POST['thumb_model_scale'],
-                    'thumb_model_rotation' => $_POST['thumb_model_rotation'],
-                    'wall_video' => $file_data_videos_name,
-                    'direct_entry' => $_POST['direct_entry'],
-                ],
+                'data' => $update_data,
             ],
             $_POST['shop_id']
         );
@@ -524,6 +578,48 @@ $shop_name_position_Z = $pieces['2'];
                                        <source src="mov_bbb.ogg" type="video/ogg">
                                        Your browser does not support HTML video.
                                     </video>
+                                 </center>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="Rectangle-242 mt-5">
+                           <div class="row">
+                              <div class="col-md-6 mt-3" >
+                                 <div class="form-group mt-3" >
+                                    <label for="exampleInputEmail1" class="input__label "><b>Upload Right side Banner *</b></label>
+                                    <input type="file" name="right_wall_banner"  class="form-control"  placeholder="Select 3D Model" style="padding: 12px !important;height: 53px; width:90%">
+                                    <input type="hidden" class="form-control" name="right_wall_banner_name" value="<?php echo $get_data[0][
+                                        'right_wall_banner'
+                                    ]; ?>" />
+                                 </div>
+                              </div>
+                              <div class="col-md-6 mt-3" >
+                                 <center>
+                                    <img src="../../common_models/banners/<?php echo $get_data[0][
+                                        'right_wall_banner'
+                                    ]; ?>" alt="right_wall_banner"/>
+                                    
+                                 </center>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="Rectangle-242 mt-5">
+                           <div class="row">
+                              <div class="col-md-6 mt-3" >
+                                 <div class="form-group mt-3" >
+                                    <label for="exampleInputEmail1" class="input__label "><b>Upload Left side Banner *</b></label>
+                                    <input type="file" name="left_wall_banner"  class="form-control"  placeholder="Select 3D Model" style="padding: 12px !important;height: 53px; width:90%">
+                                    <input type="hidden" class="form-control" name="left_wall_banner_name" value="<?php echo $get_data[0][
+                                        'left_wall_banner'
+                                    ]; ?>" />
+                                 </div>
+                              </div>
+                              <div class="col-md-6 mt-3" >
+                                 <center>
+                                    <img src="../../common_models/banners/<?php echo $get_data[0][
+                                        'left_wall_banner'
+                                    ]; ?>" alt="left_wall_banner"/>
+                                    
                                  </center>
                               </div>
                            </div>
