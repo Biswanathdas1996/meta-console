@@ -20,7 +20,7 @@ if ($_POST) {
     ]);
 
     $_SESSION['user'] = $get_data;
-    header('Location: dashboard.php');
+    header('Location: business_type.php');
     die();
 }
 ?>
