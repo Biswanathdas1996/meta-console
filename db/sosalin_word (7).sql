@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2023 at 03:08 AM
+-- Generation Time: Feb 08, 2023 at 02:31 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -294,6 +294,374 @@ INSERT INTO `1674591687_meta_product_table` (`id`, `name`, `price`, `description
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `1674705864_meta_product_table`
+--
+
+CREATE TABLE `1674705864_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1674705955_meta_product_table`
+--
+
+CREATE TABLE `1674705955_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1674705969_meta_product_table`
+--
+
+CREATE TABLE `1674705969_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1674705980_meta_product_table`
+--
+
+CREATE TABLE `1674705980_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1674706175_meta_product_table`
+--
+
+CREATE TABLE `1674706175_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1674706276_meta_product_table`
+--
+
+CREATE TABLE `1674706276_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1674706298_meta_product_table`
+--
+
+CREATE TABLE `1674706298_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1674706346_meta_product_table`
+--
+
+CREATE TABLE `1674706346_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1674706401_meta_product_table`
+--
+
+CREATE TABLE `1674706401_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1674706427_meta_product_table`
+--
+
+CREATE TABLE `1674706427_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1674706436_meta_product_table`
+--
+
+CREATE TABLE `1674706436_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1674706473_meta_product_table`
+--
+
+CREATE TABLE `1674706473_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1674706512_meta_product_table`
+--
+
+CREATE TABLE `1674706512_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1674706565_meta_product_table`
+--
+
+CREATE TABLE `1674706565_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1674706633_meta_product_table`
+--
+
+CREATE TABLE `1674706633_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1674706640_meta_product_table`
+--
+
+CREATE TABLE `1674706640_meta_product_table` (
+  `id` int(2) NOT NULL,
+  `name` varchar(355) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(355) DEFAULT NULL,
+  `img` varchar(355) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `rack` int(11) DEFAULT NULL,
+  `glb_model` varchar(355) DEFAULT NULL,
+  `tag` varchar(355) DEFAULT NULL,
+  `scale` varchar(355) DEFAULT NULL,
+  `rotation` varchar(355) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `custom_position_vertical` varchar(355) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `business`
 --
 
@@ -317,7 +685,10 @@ INSERT INTO `business` (`id`, `industry`, `name`, `address`, `username`, `passwo
 (3, 'Pharma', 'Upton Wade', 'Omnis enim qui aliqu', 'admin', '123', 1),
 (4, 'FMCG', 'Test Business', 'Dolores nemo et non ', 'test', 'test', 1),
 (5, 'Retail', 'Bisiness 1', 'Dolores nemo et non ', 'bisness', 'bisness', 1),
-(6, 'Retail', 'Apple Imagine shop', 'Ea inventore consequ', 'testa', 'aaa', 1);
+(6, 'Retail', 'Apple Imagine shop', 'Ea inventore consequ', 'testa', 'aaa', 1),
+(7, 'Clothing', 'Chase Herring', 'Qui animi in volupt', 'lypykimaxa', 'Pa$$w0rd!', 1),
+(8, 'Pharma', 'Jorden Hoffman', 'Sed deserunt minim d', 'jahunuket', 'Pa$$w0rd!', 1),
+(9, 'Clothing', 'Alfreda Maldonado', 'Et asperiores cum vo', 'bimygeg', 'Pa$$w0rd!', 1);
 
 -- --------------------------------------------------------
 
@@ -446,6 +817,8 @@ CREATE TABLE `meta_shop_lists` (
   `status` int(11) DEFAULT 0,
   `land_locations_id` int(11) DEFAULT NULL,
   `wall_video` varchar(355) DEFAULT 'dummy.mp4',
+  `left_wall_banner` varchar(355) DEFAULT NULL,
+  `right_wall_banner` varchar(355) DEFAULT 'default.jpg',
   `direct_entry` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -453,16 +826,32 @@ CREATE TABLE `meta_shop_lists` (
 -- Dumping data for table `meta_shop_lists`
 --
 
-INSERT INTO `meta_shop_lists` (`id`, `name`, `link`, `shop`, `thumb_model`, `thumb_model_scale`, `thumb_model_rotation`, `shop_env_model`, `rack`, `stand_qty`, `user_id`, `status`, `land_locations_id`, `wall_video`, `direct_entry`) VALUES
-(1, 'Macdonald', '1672196528', 'shop_base.glb', '1672712898.glb', '300 300 300', '0 0 0', 'shop_base.glb', 'Stand.glb', 2, 1, 1, 1, '1672715425.mp4', 1),
-(2, 'Apolo Pharmicy ', '1672225043', 'shop_base.glb', '1672740882.glb', '500 500 500', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 1, 1, 2, '1672741911.mp4', 1),
-(3, 'Reliance Digital ', '1672715841', 'shop_base.glb', '1672715910.glb', '600 700 600', '0 -90 0', 'shop_base.glb', 'Stand3.glb', 2, 1, 1, 3, 'dummy.mp4', 0),
-(4, 'Gupta veg shop', '1673239124', 'shop_base.glb', '1673239387.glb', '500 600 500', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 1, 1, 4, 'dummy.mp4', 1),
-(5, 'Test', '1673242175', 'shop_base.glb', 'shop_thumb_1.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 2, 0, 4, 'dummy.mp4', 1),
-(6, 'Shop 1', '1673347505', 'shop_base.glb', '1673348263.glb', '400 500 400', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 3, 1, 5, 'dummy.mp4', 0),
-(7, 'Imagine store', '1674588784', 'shop_base.glb', '1674588922.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 4, 0, 9, 'dummy.mp4', 1),
-(8, 'Imagine store', '1674590093', 'shop_base.glb', '1674590173.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 5, 0, 9, 'dummy.mp4', 1),
-(9, 'Apple store', '1674591687', 'shop_base.glb', '1674591758.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 6, 1, 9, 'dummy.mp4', 0);
+INSERT INTO `meta_shop_lists` (`id`, `name`, `link`, `shop`, `thumb_model`, `thumb_model_scale`, `thumb_model_rotation`, `shop_env_model`, `rack`, `stand_qty`, `user_id`, `status`, `land_locations_id`, `wall_video`, `left_wall_banner`, `right_wall_banner`, `direct_entry`) VALUES
+(1, 'Macdonald', '1672196528', 'shop_base.glb', '1672712898.glb', '300 300 300', '0 0 0', 'shop_base.glb', 'Stand.glb', 2, 1, 1, 1, '1672715425.mp4', '1674840180_left.png', '1674840190_right.png', 1),
+(2, 'Apolo Pharmicy ', '1672225043', 'shop_base.glb', '1672740882.glb', '500 500 500', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 1, 1, 2, '1672741911.mp4', '1674837749_left.png', '1674837749_right.png', 1),
+(3, 'Reliance Digital ', '1672715841', 'shop_base.glb', '1672715910.glb', '600 700 600', '0 -90 0', 'shop_base.glb', 'Stand3.glb', 2, 1, 1, 3, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 0),
+(4, 'Gupta veg shop', '1673239124', 'shop_base.glb', '1673239387.glb', '500 600 500', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 1, 1, 4, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(5, 'Test', '1673242175', 'shop_base.glb', 'shop_thumb_1.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 2, 0, 4, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(6, 'Shop 1', '1673347505', 'shop_base.glb', '1673348263.glb', '400 500 400', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 3, 1, 5, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 0),
+(7, 'Imagine store', '1674588784', 'shop_base.glb', '1674588922.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 4, 0, 9, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(8, 'Imagine store', '1674590093', 'shop_base.glb', '1674590173.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 5, 0, 9, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(9, 'Apple store', '1674591687', 'shop_base.glb', '1674591758.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 6, 0, 9, '1674615160.mp4', 'default_left_banner.jpg', 'default.jpg', 0),
+(10, 'Moses Hansen', '1674705864', 'shop_base.glb', 'shop_thumb_1.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand2.glb', 653, 6, 0, 10, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(11, 'Joan Romero', '1674705955', 'shop_base.glb', 'shop_thumb_1.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 612, 6, 0, 4, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(12, 'Silas Church', '1674705969', '', 'shop_thumb_1.glb', '600 700 600', '0 0 0', '', 'Stand3.glb', 824, 6, 0, 4, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(13, 'Silas Church', '1674705980', '', 'shop_thumb_1.glb', '600 700 600', '0 0 0', '', 'Stand3.glb', 824, 6, 0, 4, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(14, 'Colin Sweeney', '1674706175', 'shop_base.glb', 'shop_thumb_1.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 432, 6, 0, 0, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(15, 'Aidan Salazar', '1674706276', '', 'shop_thumb_1.glb', '600 700 600', '0 0 0', '', 'Stand3.glb', 447, 6, 0, 7, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(16, 'Aidan Salazar', '1674706298', 'shop_base.glb', 'shop_thumb_1.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 447, 6, 0, 7, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(17, 'Mariko Woodard', '1674706346', 'shop_base.glb', 'shop_thumb_1.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 84, 6, 0, 4, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(18, 'Signe Hatfield', '1674706401', 'shop_base.glb', 'shop_thumb_1.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand2.glb', 712, 6, 0, 3, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(19, 'Brooke Bradford', '1674706427', '', 'shop_thumb_1.glb', '600 700 600', '0 0 0', '', 'Stand.glb', 268, 6, 0, 5, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(20, 'Brooke Bradford', '1674706436', 'shop_base.glb', 'shop_thumb_1.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand.glb', 268, 6, 0, 5, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(21, 'Shaine Reeves', '1674706473', 'shop_base.glb', 'shop_thumb_1.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 377, 6, 0, 8, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(22, 'Graham Dunlap', '1674706512', 'shop_base.glb', 'shop_thumb_1.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand.glb', 801, 6, 0, 9, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(23, 'Neil Cole', '1674706565', 'shop_base.glb', 'shop_thumb_1.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand.glb', 457, 6, 0, 6, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(24, 'Kay Coleman', '1674706633', '', 'shop_thumb_1.glb', '600 700 600', '0 0 0', '', 'Stand.glb', 328, 6, 0, 7, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(25, 'Kyla Merrill', '1674706640', 'shop_base.glb', 'shop_thumb_1.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand.glb', 604, 6, 0, 1, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -765,7 +1154,9 @@ INSERT INTO `visitors_lead` (`id`, `name`, `contact_no`, `email`, `shop`, `date`
 (77, 'Jared Pickett', '21', 'kusuxytu@mailinator.com', '3', '01/25/2023 12:23:10 am'),
 (78, 'Justine Neal', '78', 'cafas@mailinator.com', '3', '01/25/2023 12:49:36 am'),
 (79, 'Justine Neal', '784444', 'cafas@mailinator.com', '7', '01/25/2023 01:06:24 am'),
-(80, 'Biswanath Das', '5555555', 'kusuxytu@mailinator.com', '9', '01/25/2023 02:00:22 am');
+(80, 'Biswanath Das', '5555555', 'kusuxytu@mailinator.com', '9', '01/25/2023 02:00:22 am'),
+(81, 'Biswanath Das', '5555555', 'kusuxytu@mailinator.com', '3', '01/27/2023 08:17:37 am'),
+(82, 'Biswanath Das', '5555555', 'kusuxytu@mailinator.com', '3', '01/27/2023 11:14:00 pm');
 
 --
 -- Indexes for dumped tables
@@ -823,6 +1214,102 @@ ALTER TABLE `1674590093_meta_product_table`
 -- Indexes for table `1674591687_meta_product_table`
 --
 ALTER TABLE `1674591687_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674705864_meta_product_table`
+--
+ALTER TABLE `1674705864_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674705955_meta_product_table`
+--
+ALTER TABLE `1674705955_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674705969_meta_product_table`
+--
+ALTER TABLE `1674705969_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674705980_meta_product_table`
+--
+ALTER TABLE `1674705980_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674706175_meta_product_table`
+--
+ALTER TABLE `1674706175_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674706276_meta_product_table`
+--
+ALTER TABLE `1674706276_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674706298_meta_product_table`
+--
+ALTER TABLE `1674706298_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674706346_meta_product_table`
+--
+ALTER TABLE `1674706346_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674706401_meta_product_table`
+--
+ALTER TABLE `1674706401_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674706427_meta_product_table`
+--
+ALTER TABLE `1674706427_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674706436_meta_product_table`
+--
+ALTER TABLE `1674706436_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674706473_meta_product_table`
+--
+ALTER TABLE `1674706473_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674706512_meta_product_table`
+--
+ALTER TABLE `1674706512_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674706565_meta_product_table`
+--
+ALTER TABLE `1674706565_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674706633_meta_product_table`
+--
+ALTER TABLE `1674706633_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `1674706640_meta_product_table`
+--
+ALTER TABLE `1674706640_meta_product_table`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -944,10 +1431,106 @@ ALTER TABLE `1674591687_meta_product_table`
   MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `1674705864_meta_product_table`
+--
+ALTER TABLE `1674705864_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `1674705955_meta_product_table`
+--
+ALTER TABLE `1674705955_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `1674705969_meta_product_table`
+--
+ALTER TABLE `1674705969_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `1674705980_meta_product_table`
+--
+ALTER TABLE `1674705980_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `1674706175_meta_product_table`
+--
+ALTER TABLE `1674706175_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `1674706276_meta_product_table`
+--
+ALTER TABLE `1674706276_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `1674706298_meta_product_table`
+--
+ALTER TABLE `1674706298_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `1674706346_meta_product_table`
+--
+ALTER TABLE `1674706346_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `1674706401_meta_product_table`
+--
+ALTER TABLE `1674706401_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `1674706427_meta_product_table`
+--
+ALTER TABLE `1674706427_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `1674706436_meta_product_table`
+--
+ALTER TABLE `1674706436_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `1674706473_meta_product_table`
+--
+ALTER TABLE `1674706473_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `1674706512_meta_product_table`
+--
+ALTER TABLE `1674706512_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `1674706565_meta_product_table`
+--
+ALTER TABLE `1674706565_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `1674706633_meta_product_table`
+--
+ALTER TABLE `1674706633_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `1674706640_meta_product_table`
+--
+ALTER TABLE `1674706640_meta_product_table`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `business`
 --
 ALTER TABLE `business`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `config`
@@ -971,7 +1554,7 @@ ALTER TABLE `land_locations`
 -- AUTO_INCREMENT for table `meta_shop_lists`
 --
 ALTER TABLE `meta_shop_lists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `meta_shop_orders`
@@ -1001,7 +1584,7 @@ ALTER TABLE `shop_meta_products_loocation`
 -- AUTO_INCREMENT for table `visitors_lead`
 --
 ALTER TABLE `visitors_lead`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
