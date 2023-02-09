@@ -17,9 +17,9 @@
             <img id="skyTexture" src="assets/images/back-city.jpg">
 
             <?php if ($_GET['view'] === 'HD') { ?>
-                <!-- <a-asset-item id="land_grass" src="assets/high_quality_glb/grass.glb"></a-asset-item> -->
+                <a-asset-item id="land_grass" src="assets/high_quality_glb/grass_-_please.glb"></a-asset-item>
                 <a-asset-item id="grass_patches" src="assets/high_quality_glb/grass_patches.glb"></a-asset-item>
-                <a-asset-item id="grass_variations" src="assets/high_quality_glb/low_poly_grass.glb"></a-asset-item>
+                <a-asset-item id="grass_variations" src="assets/high_quality_glb/grass_free_to_use.glb"></a-asset-item>
                 <a-asset-item id="maple_tree" src="assets/high_quality_glb/maple_tree.glb"></a-asset-item>
                 <!-- <a-asset-item id="pine_tree" src="assets/high_quality_glb/pine_tree.glb"></a-asset-item> -->
                 <a-asset-item id="huaranhuay" src="assets/high_quality_glb/tropical_plant_2.glb"></a-asset-item>
@@ -27,6 +27,7 @@
                 <a-asset-item id="redwood_trees" src="assets/high_quality_glb/redwood_trees.glb"></a-asset-item>
                 <a-asset-item id="african_plain_trees" src="assets/high_quality_glb/african_plain_trees.glb"></a-asset-item>
                 <a-asset-item id="tropical_plant" src="assets/high_quality_glb/tropical_plant.glb"></a-asset-item>
+                <a-asset-item id="blueberry" src="assets/high_quality_glb/blueberry.glb"></a-asset-item>
             <?php } ?>
 </a-assets>
 

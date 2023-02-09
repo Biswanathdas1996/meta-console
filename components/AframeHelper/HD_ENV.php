@@ -1,6 +1,6 @@
 
       
-      <!-- <a-entity 
+      <a-entity 
             gltf-model="#land_grass" 
             position="-110 0 140" 
             scale="5 5 5" 
@@ -29,13 +29,37 @@
             gltf-model="#land_grass" 
             position="-185 0 140" 
             scale="5 5 5" 
-      ></a-entity> -->
-
-      <a-entity 
-            gltf-model="#grass_patches" 
-            position="-135 0 140" 
-            scale="1 1 1" 
       ></a-entity>
+
+      <!-- ----------------------------------- -->
+      <a-entity 
+            gltf-model="#land_grass" 
+            position="-110 0 180" 
+            scale="5 5 5" 
+      ></a-entity>
+      
+      <a-entity 
+            gltf-model="#land_grass" 
+            position="-155 0 180" 
+            scale="5 5 5" 
+      ></a-entity>
+     
+      <a-entity 
+            gltf-model="#land_grass" 
+            position="-175 0 180" 
+            scale="5 5 5" 
+      ></a-entity>
+      <a-entity 
+            gltf-model="#land_grass" 
+            position="-185 0 180" 
+            scale="5 5 5" 
+      ></a-entity>
+
+     
+
+
+
+
       <a-entity 
             gltf-model="#tropical_plant" 
             scale="10 12 10" 
@@ -56,14 +80,14 @@
      
       
 
-      <?php for ($j = 60; $j < 200; $j = $j + 1) {
-          for ($i = 1; $i < 100; $i = $i + 1) { ?>
+      <?php for ($j = 60; $j < 200; $j = $j + 10) {
+          for ($i = 1; $i < 4; $i = $i + 1) { ?>
 
-        <a-entity 
-            gltf-model="#grass_variations" 
-            scale="5 5 5" 
+        <!-- <a-entity 
+            gltf-model="#grass_patches" 
+            scale="1 1 1"  
             position="<?php echo $i; ?> 0 <?php echo $j; ?>" 
-        ></a-entity>
+        ></a-entity> -->
 
         <?php }
       } ?>
@@ -140,10 +164,10 @@
             scale=".1 .1 .1" 
       ></a-entity> -->
       <a-entity 
-            id="huaranhuay"
-            gltf-model="#huaranhuay" 
+      gltf-model="#maple_tree" 
+            scale=".2 .2 .2"
             position="-40 0 -30" 
-            scale="10 10 10" 
+      
       ></a-entity>
       <a-entity 
             id="huaranhuay"
@@ -152,10 +176,10 @@
             scale="7 7 7" 
       ></a-entity>
       <a-entity 
-            id="huaranhuay"
-            gltf-model="#huaranhuay" 
+            id="blueberry"
+            gltf-model="#blueberry" 
             position="-6 0 70" 
-            scale="10 10 10" 
+            scale="0.5 0.5 0.5" 
       ></a-entity>
       <!-- <a-entity 
             id="maple_tree"
@@ -178,12 +202,13 @@
       <a-entity 
             id="maple_tree"
             gltf-model="#maple_tree" 
-            position="130 0 -30" 
             scale=".1 .1 .1" 
+            position="130 0 -30" 
+           
       ></a-entity>
       <a-entity 
-            gltf-model="#tropical_plant" 
-            scale="10 12 10" 
+            gltf-model="#blueberry" 
+            scale=".6 .6 .6" 
             position="160 0 -10" 
           
       ></a-entity>
@@ -192,26 +217,30 @@
       <a-entity 
             id="tropical_plants_pack_m02p"
             gltf-model="#tropical_plants_pack_m02p" 
-            position="-5 0 170" 
+            position="-5 0 180" 
             scale="7 8 7" 
+            rotation="0 180 0"
       ></a-entity>
       <a-entity 
             id="tropical_plants_pack_m02p"
             gltf-model="#tropical_plants_pack_m02p" 
-            position="-55 0 170" 
+            position="-55 0 180" 
             scale="7 8 7" 
+            rotation="0 180 0"
       ></a-entity>
       <a-entity 
             id="tropical_plants_pack_m02p"
             gltf-model="#tropical_plants_pack_m02p" 
-            position="55 0 170" 
+            position="55 0 180" 
             scale="7 8 7" 
+            rotation="0 180 0"
       ></a-entity>
       <a-entity 
             id="tropical_plants_pack_m02p"
             gltf-model="#tropical_plants_pack_m02p" 
-            position="105 0 170" 
+            position="105 0 180" 
             scale="7 8 7" 
+            rotation="0 180 0"
       ></a-entity>
 <!-- ------------------------------------------------------------------------- -->
 
