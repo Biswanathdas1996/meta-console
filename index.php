@@ -17,11 +17,22 @@ include './components/utils/dataSource.php';
          <?php include './components/AframeHelper/environment.php'; ?>
          <?php include './components/AframeHelper/plotMarker.php'; ?>
          <?php include './components/AframeHelper/shops.php'; ?>
+
+
+
+         <?php if ($_GET['view'] === 'HD') {
+             include './components/AframeHelper/HD_ENV.php';
+         } ?>
+
+
+
          <a-entity id="rig" movement-controls="constrainToNavMesh: true;" >
             <!--$camera_position -->
             <a-camera
                id="camera" 
-               position="<?php echo $camera_position; ?>" 
+               position="<?php if ($camera_position) {
+                   echo $camera_position;
+               } ?>" 
                look-controls="pointerLockEnabled: true" 
                ammo-body="type: dynamic;"
                limit-my-distance
