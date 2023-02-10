@@ -17,10 +17,12 @@ include './components/utils/dataSource.php';
    <body>
        <?php include './components/helpers/modals.php'; ?>
       <a-scene physics="debug: true">
-         <?php include './components/AframeHelper/assetLoader.php'; ?>
-         <?php include './components/AframeHelper/environment.php'; ?>
-         <?php include './components/AframeHelper/plotMarker.php'; ?>
-         <?php include './components/AframeHelper/shops.php'; ?>
+         <?php
+         include './components/AframeHelper/assetLoader.php';
+         include './components/AframeHelper/environment.php';
+         include './components/AframeHelper/plotMarker.php';
+         include './components/AframeHelper/shops.php';
+         ?>
 
          <?php if ($_GET['view'] === 'HD') {
              include './components/AframeHelper/HD_ENV.php';
