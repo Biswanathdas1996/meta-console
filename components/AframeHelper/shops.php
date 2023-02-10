@@ -137,9 +137,9 @@ id="text_data"></a-text>
                       method: 'POST',
                       body: formdata,
                       redirect: 'follow'
-                    };
+                    }; 
 
-                    fetch(`control/api/visitor_lead.php?shop=${productid}`, requestOptions)
+                    fetch(`${window.API_URL}/visitor_lead.php?shop=${productid}`, requestOptions)
                       .then(response => response.json())
                       .then(result => {
                           console.log(result)

@@ -40,7 +40,7 @@
                     
                    const tableName = "<?php echo $table_name; ?>";
                    
-                   await fetch(`${url}meta-console/control/api/GetAllProduct.php?table=${tableName}`, requestOptions)
+                   await fetch(`${window.API_URL}/GetAllProduct.php?table=${tableName}`, requestOptions)
                       .then(response => response.json())
                       .then(result => {
                           console.log(result)

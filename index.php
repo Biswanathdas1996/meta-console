@@ -8,7 +8,11 @@ include './components/utils/dataSource.php';
       include './components/helpers/cdn.php';
       include './components/helpers/css.php';
       include './components/utils/events.php';
+      include './config/api_endpoint.php';
       ?>
+         <script>
+            window.API_URL = "<?php echo $api_base_url; ?>"; 
+         </script>
    </head>
    <body>
        <?php include './components/helpers/modals.php'; ?>
@@ -18,13 +22,9 @@ include './components/utils/dataSource.php';
          <?php include './components/AframeHelper/plotMarker.php'; ?>
          <?php include './components/AframeHelper/shops.php'; ?>
 
-
-
          <?php if ($_GET['view'] === 'HD') {
              include './components/AframeHelper/HD_ENV.php';
          } ?>
-
-
 
          <a-entity id="rig" movement-controls="constrainToNavMesh: true;" >
             <!--$camera_position -->

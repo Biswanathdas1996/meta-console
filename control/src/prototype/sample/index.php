@@ -10,7 +10,14 @@ include 'utils/dataSource.php';
         <script src="../../functions/buyNow.js"></script>
         <script src="../../functions/addToCart.js"></script>
         <script src="../../functions/cartModal.js"></script>
-        <?php include 'utils/events.php'; ?>
+        <?php
+        include 'utils/events.php';
+        include '../../../config/api_endpoint.php';
+        ?>
+        <script>
+            window.API_URL = "<?php echo $api_base_url; ?>"; 
+        </script>
+
    </head>
    <body>
       <?php include 'components/cart_modal.php'; ?>

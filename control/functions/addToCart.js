@@ -9,7 +9,10 @@ async function addToCart(tableName) {
     redirect: "follow",
   };
 
-  await fetch(`../../api/GetAllProduct.php?table=${tableName}`, requestOptions)
+  await fetch(
+    `${window.API_URL}/GetAllProduct.php?table=${tableName}`,
+    requestOptions
+  )
     .then((response) => response.json())
     .then((result) => {
       console.log("--result--->", result);

@@ -1,29 +1,27 @@
-<?php $table_name='1673239124_meta_product_table';?><?php include("../../src/config/includes.php"); echo Layout::APILayout();
- $folder_name = str_replace("_meta_product_table", "", $table_name);
- 
+<?php $table_name = '1673239124_meta_product_table';
+include '../../src/config/includes.php';
+echo Layout::APILayout();
+$folder_name = str_replace('_meta_product_table', '', $table_name);
 
- $get_data = select($table_name,[
-               'conditions'=>array(
-                               "status"=>0,
-                           ),
-                             'join' =>array(
-                               'shop_meta_products_loocation'=>'location_id',
-                           ),
-           ]);
-           
-           
+$get_data = select($table_name, [
+    'conditions' => [
+        'status' => 0,
+    ],
+    'join' => [
+        'shop_meta_products_loocation' => 'location_id',
+    ],
+]);
 
-$get_shop_data = select('meta_shop_lists',[
-            "conditions"=>[
-                "link"=>$folder_name
-                ],
-            'join' =>array(
-                'land_locations'=>'land_locations_id',
-            ),
-        ]);
-        
-     $url = url();
-        
+$get_shop_data = select('meta_shop_lists', [
+    'conditions' => [
+        'link' => $folder_name,
+    ],
+    'join' => [
+        'land_locations' => 'land_locations_id',
+    ],
+]);
+
+$url = url();
 ?>
 <html>
    <head>
@@ -70,7 +68,9 @@ $get_shop_data = select('meta_shop_lists',[
       
       <script>
        
-        const cameraPosition = "<?php echo $get_shop_data[0]['land_locations']['on_exit_camers_position'];?>";
+        const cameraPosition = "<?php echo $get_shop_data[0]['land_locations'][
+            'on_exit_camers_position'
+        ]; ?>";
         console.log("cameraPosition-----------",cameraPosition)
          AFRAME.registerComponent("click-log", {
            init: function () {
@@ -78,7 +78,7 @@ $get_shop_data = select('meta_shop_lists',[
                  console.log("hi", i?.detail?.distance);
                  const productId = i?.path[0]?.components['click-log']?.data;
                  console.log(productId);
-                 const url = "<?php echo   $url ;?>"
+                 const url = "<?php echo $url; ?>"
                  if (productId == "shopInside") {
                         if(cameraPosition){
                             window.location.href = `${url}meta-console/?camera_position=${cameraPosition}`
@@ -108,7 +108,7 @@ $get_shop_data = select('meta_shop_lists',[
                     };
                     
                    const tableName = "<?php echo $table_name; ?>";
-                   await fetch(`${url}meta-console/control/api/GetAllProduct.php?table=${tableName}`, requestOptions)
+                   await fetch(`${window.API_URL}/GetAllProduct.php?table=${tableName}`, requestOptions)
                       .then(response => response.json())
                       .then(result => {
                           console.log(result)
@@ -150,7 +150,7 @@ $get_shop_data = select('meta_shop_lists',[
            init: function () {
              this.myFunction = async function (i) {
                 
-               const url = "<?php echo   $url ;?>"
+               const url = "<?php echo $url; ?>"
                  if(i?.detail?.intersection?.distance < 1 ){
                       window.location.href = `${url}meta-console/?camera_position=${cameraPosition}`
                  }
@@ -299,23 +299,27 @@ $get_shop_data = select('meta_shop_lists',[
             
             
             <!--<a-asset-item id="Stand" src="../../common_models//Stand3.glb"></a-asset-item>-->
-            <a-asset-item id="Stand" src="../../common_models/<?php echo $get_shop_data[0]['rack']?>"></a-asset-item>
+            <a-asset-item id="Stand" src="../../common_models/<?php echo $get_shop_data[0][
+                'rack'
+            ]; ?>"></a-asset-item>
             <a-asset-item id="banner1" src="../../common_models/banner1.glb"></a-asset-item>
             <a-asset-item id="banner2" src="../../common_models/banner2.glb"></a-asset-item>
             
              <!--<video id="video" autoplay loop="true" src="../../common_models/tropicana.mp4"></video>-->
              <!--<video id="video2" autoplay loop="true" src="../../common_models/wine.mp4"></video>-->
              
-             <video id="video3" autoplay loop="true" src="../../common_models/videos/<?php echo $get_shop_data[0]['wall_video']; ?>"></video>
+             <video id="video3" autoplay loop="true" src="../../common_models/videos/<?php echo $get_shop_data[0][
+                 'wall_video'
+             ]; ?>"></video>
          
           
-             <?php
-            foreach($get_data as $key=> $value){ 
-            ?>
-                <a-asset-item id="<?php echo $value['tag']?>" src="models/<?php echo $value['glb_model']?>"></a-asset-item>
-           <?php
-                }
-            ?>
+             <?php foreach ($get_data as $key => $value) { ?>
+                <a-asset-item id="<?php echo $value[
+                    'tag'
+                ]; ?>" src="models/<?php echo $value[
+    'glb_model'
+]; ?>"></a-asset-item>
+           <?php } ?>
              
              
 
@@ -334,14 +338,11 @@ $get_shop_data = select('meta_shop_lists',[
          
          
          
-         <?php 
-            for($i=0; $i < $get_shop_data[0]['stand_qty']; $i++){
-                $stand_gap = $i * 10;
-            ?>
-                <a-entity gltf-model="#Stand" position="10.5 0 <?php echo $stand_gap;?>" scale="3 2 2"></a-entity>
-            <?php }
-         
-         ?>
+         <?php for ($i = 0; $i < $get_shop_data[0]['stand_qty']; $i++) {
+             $stand_gap = $i * 10; ?>
+                <a-entity gltf-model="#Stand" position="10.5 0 <?php echo $stand_gap; ?>" scale="3 2 2"></a-entity>
+            <?php
+         } ?>
          <!--<a-entity gltf-model="#Stand" position="10.5 0 10" scale="3 2 2"></a-entity>-->
          <a-entity gltf-model="#shop" position="15 0.3 5" scale="15 15 30"></a-entity>
          <!--click-log="shopInside"-->
@@ -372,48 +373,54 @@ $get_shop_data = select('meta_shop_lists',[
          
          
          
-       <?php
-            foreach($get_data as $key=> $value){ 
-                for($i=1;$i<=$value['qty'];$i++){ 
-                    
-                        if($value['shop_meta_products_loocation']['position_x'] == null){
-                            $x=$i+6;
-                        }else{
-                            $x = $value['shop_meta_products_loocation']['position_x']; 
-                        }
-                        if($value['shop_meta_products_loocation']['position_y'] == null){
-                            $y=$i+6;
-                        }else{
-                            if($value['custom_position_vertical'] != NULL) {
-                                 $y = $value['custom_position_vertical']; 
-                            }else{
-                                $y = $value['shop_meta_products_loocation']['position_y'];  
-                            }
-                        }   
-                        if($value['shop_meta_products_loocation']['position_z'] == null){
-                            $y=$i+6;
-                        }else{
-                            $z = $value['shop_meta_products_loocation']['position_z'];
-                        }
-                    
-                  
-                   
-                $final_postion = $x." ".$y." ".$z;    
-                        
-                    ?>
+       <?php foreach ($get_data as $key => $value) {
+           for ($i = 1; $i <= $value['qty']; $i++) {
+
+               if (
+                   $value['shop_meta_products_loocation']['position_x'] == null
+               ) {
+                   $x = $i + 6;
+               } else {
+                   $x = $value['shop_meta_products_loocation']['position_x'];
+               }
+               if (
+                   $value['shop_meta_products_loocation']['position_y'] == null
+               ) {
+                   $y = $i + 6;
+               } else {
+                   if ($value['custom_position_vertical'] != null) {
+                       $y = $value['custom_position_vertical'];
+                   } else {
+                       $y =
+                           $value['shop_meta_products_loocation']['position_y'];
+                   }
+               }
+               if (
+                   $value['shop_meta_products_loocation']['position_z'] == null
+               ) {
+                   $y = $i + 6;
+               } else {
+                   $z = $value['shop_meta_products_loocation']['position_z'];
+               }
+
+               $final_postion = $x . ' ' . $y . ' ' . $z;
+               ?>
          <a-entity 
-            gltf-model="#<?php echo $value['tag']?>" 
-            position="<?php echo $final_postion;?>" 
-            scale="<?php echo $value['scale']?>" 
-            rotation="<?php echo $value['rotation']?>" 
-            click-log="<?php echo $value['id']?>"
-            animation__mouseenter="property: position; to: <?php echo $x;?> <?php echo $value['shop_meta_products_loocation']['zoom_y'];?> <?php echo $value['shop_meta_products_loocation']['zoom_z'];?>; dur: 500;  startEvents: mouseenter; loop: false" 
-            animation__mouseleave="property: position; to: <?php echo $x;?> <?php echo $y;?> <?php echo $z;?>; dur: 500;  startEvents: mouseleave; loop: false"
+            gltf-model="#<?php echo $value['tag']; ?>" 
+            position="<?php echo $final_postion; ?>" 
+            scale="<?php echo $value['scale']; ?>" 
+            rotation="<?php echo $value['rotation']; ?>" 
+            click-log="<?php echo $value['id']; ?>"
+            animation__mouseenter="property: position; to: <?php echo $x; ?> <?php echo $value[
+     'shop_meta_products_loocation'
+ ]['zoom_y']; ?> <?php echo $value['shop_meta_products_loocation'][
+     'zoom_z'
+ ]; ?>; dur: 500;  startEvents: mouseenter; loop: false" 
+            animation__mouseleave="property: position; to: <?php echo $x; ?> <?php echo $y; ?> <?php echo $z; ?>; dur: 500;  startEvents: mouseleave; loop: false"
             ></a-entity>
-         <?php  
-            }  
-            }
-            ?>
+         <?php
+           }
+       } ?>
             
             
         <a-entity id="rig">

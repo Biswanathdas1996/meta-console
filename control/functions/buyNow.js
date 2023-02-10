@@ -65,7 +65,10 @@ async function buyNow(tableName) {
     redirect: "follow",
   };
 
-  await fetch(`../api/GetAllProduct.php?table=${tableName}`, requestOptions)
+  await fetch(
+    `${window.API_URL}/GetAllProduct.php?table=${tableName}`,
+    requestOptions
+  )
     .then((response) => response.json())
     .then((result) => {
       console.log(result);
@@ -132,7 +135,7 @@ function itemDecrease(id, tableName, razorpay_order_id) {
   };
 
   fetch(
-    `../../api/confirmOrder.php?id=${id}&table=${tableName}&order_id=${razorpay_order_id}`,
+    `${window.API_URL}/confirmOrder.php?id=${id}&table=${tableName}&order_id=${razorpay_order_id}`,
     requestOptions
   )
     .then((response) => response.text())
