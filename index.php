@@ -24,7 +24,7 @@ include './components/utils/dataSource.php';
          include './components/AframeHelper/shops.php';
          ?>
 
-         <?php if ($_GET['view'] === 'HD') {
+         <?php if ($_GET && $_GET['view'] === 'HD') {
              include './components/AframeHelper/HD_ENV.php';
          } ?>
 
