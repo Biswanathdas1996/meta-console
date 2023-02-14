@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2023 at 03:52 AM
+-- Generation Time: Feb 14, 2023 at 04:20 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -788,7 +788,7 @@ INSERT INTO `land_locations` (`id`, `name`, `position`, `on_exit_camers_position
 (1, 'Plot 1', '0 0 5', '0 3 50', '-10 45 10', '0 0 0 ', '20 20 20', 'red', '8 3 15', '0 0 0', 'Untitled.png', '0 0 5', 0),
 (2, 'Plot 2', '80 0 5', '80 3 35', '58 25 15', '0 0 0 ', '15 15 15', 'red', '80 3 16', '0 0 0', 'Untitled.png', '80 0 5', 0),
 (3, 'Plot 3', '150 0 50', '130 3 60', '140 25 35', '0 -90 0 ', '20 20 20', 'red', '145 3 50', '0 90 0', 'Untitled.png', '130 3 60', 0),
-(4, 'Plot 4', '-50 0 50', '-50 3 90', '-62 20 58', '0 0 0 ', '10 10 10', 'green', '-50 3 63', '0 0 0', 'Untitled.png', '-50 6 50', 0),
+(4, 'Plot 4', '-50 15 50', '-50 3 90', '-62 20 58', '0 0 0 ', '10 10 10', 'green', '-50 3 63', '0 0 0', 'Untitled.png', '-50 6 50', 0),
 (5, 'Plot 5', '-110 0 50', '-110 3 90', '-120 30 60', '0 0 0 ', '20 20 20', 'red', '-110 3 63', '0 0 0', 'Untitled.png', '-110 6 50', 0),
 (6, 'Plot 6', '-160 0 50', '-160 3 90', '-170 20 60', '0 0 0 ', '20 20 20', 'red', '-160 3 90', '0 0 0', 'Untitled.png', '-160 6 50', 0),
 (7, 'Plot 7', '-200 0 50', '-200 3 90', '-220 20 60', '0 0 0 ', '20 20 20', 'red', '-200 3 90', '0 0 0', 'Untitled.png', '-200 6 50', 0),
@@ -827,13 +827,13 @@ CREATE TABLE `meta_shop_lists` (
 --
 
 INSERT INTO `meta_shop_lists` (`id`, `name`, `link`, `shop`, `thumb_model`, `thumb_model_scale`, `thumb_model_rotation`, `shop_env_model`, `rack`, `stand_qty`, `user_id`, `status`, `land_locations_id`, `wall_video`, `left_wall_banner`, `right_wall_banner`, `direct_entry`) VALUES
-(1, 'Macdonald', '1672196528', 'shop_base.glb', '1672712898.glb', '300 300 300', '0 0 0', 'shop_base.glb', 'Stand.glb', 2, 1, 1, 1, '1672715425.mp4', '1674840180_left.png', '1674840190_right.png', 1),
+(1, 'Macdonald', '1672196528', 'shop_base.glb', '1675949833.glb', '6 6 6', '0 0 0', 'shop_base.glb', 'Stand.glb', 2, 1, 1, 1, '1672715425.mp4', '1674840180_left.png', '1674840190_right.png', 1),
 (2, 'Apolo Pharmicy ', '1672225043', 'shop_base.glb', '1672740882.glb', '500 500 500', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 1, 1, 2, '1672741911.mp4', '1674837749_left.png', '1674837749_right.png', 1),
 (3, 'Reliance Digital ', '1672715841', 'shop_base.glb', '1672715910.glb', '600 700 600', '0 -90 0', 'shop_base.glb', 'Stand3.glb', 2, 1, 1, 3, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 0),
-(4, 'Gupta veg shop', '1673239124', 'shop_base.glb', '1673239387.glb', '500 600 500', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 1, 1, 4, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(4, 'Gupta veg shop', '1673239124', 'shop_base.glb', '1675949461.glb', '.05 .05 .05', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 1, 1, 4, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
 (5, 'Test', '1673242175', 'shop_base.glb', 'shop_thumb_1.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 2, 0, 4, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
 (6, 'Shop 1', '1673347505', 'shop_base.glb', '1673348263.glb', '400 500 400', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 3, 1, 5, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 0),
-(7, 'Imagine store', '1674588784', 'shop_base.glb', '1674588922.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 4, 0, 9, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
+(7, 'Imagine store', '1674588784', 'shop_base.glb', '1675950429.glb', '20 30 20', '0 90 0', 'shop_base.glb', 'Stand3.glb', 2, 4, 1, 10, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
 (8, 'Imagine store', '1674590093', 'shop_base.glb', '1674590173.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 5, 0, 9, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
 (9, 'Apple store', '1674591687', 'shop_base.glb', '1674591758.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand3.glb', 2, 6, 0, 9, '1674615160.mp4', 'default_left_banner.jpg', 'default.jpg', 0),
 (10, 'Moses Hansen', '1674705864', 'shop_base.glb', 'shop_thumb_1.glb', '600 700 600', '0 0 0', 'shop_base.glb', 'Stand2.glb', 653, 6, 0, 10, 'dummy.mp4', 'default_left_banner.jpg', 'default.jpg', 1),
