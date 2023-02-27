@@ -16,7 +16,7 @@ include './components/utils/dataSource.php';
    </head>
    <body>
        <?php include './components/helpers/modals.php'; ?>
-      <a-scene physics="debug: true">
+      <a-scene joystick vr-mode-ui="enabled: false">
          <?php
          include './components/AframeHelper/assetLoader.php';
          include './components/AframeHelper/environment.php';
@@ -29,7 +29,6 @@ include './components/utils/dataSource.php';
          } ?>
 
          <a-entity id="rig" movement-controls="constrainToNavMesh: true;" >
-            <!--$camera_position -->
             <a-camera
                id="camera" 
                position="<?php if ($camera_position) {
@@ -37,7 +36,6 @@ include './components/utils/dataSource.php';
                } ?>" 
                look-controls="pointerLockEnabled: true" 
                ammo-body="type: dynamic;"
-               limit-my-distance
             >
                <a-entity cursor="fuse: false; fuseTimeout: 500" position="0 0 -1"
                   geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: red; shader: flat"  id="camera_ring">
@@ -49,14 +47,7 @@ include './components/utils/dataSource.php';
          </a-entity>
          </a-entity>
       </a-scene>
-      <script>
-         const camera = document.querySelector("a-camera");
-         camera.addEventListener("raycaster-intersection", function(e) {
-         if (e.detail.intersections[0]) {
-            console.log("----colide")
-            //  camera.setAttribute("position", e.detail.intersections[0].point);
-         }
-         });
-      </script>
+      
+      <script type="text/javascript" src="./components/AframeHelper/VirtualJoyStick.js"></script>
    </body>
 </html>

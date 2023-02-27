@@ -424,7 +424,7 @@ $url = url();
             
             
         <a-entity id="rig">
-            <a-camera  id="camera" position="24 3 18" look-controls="pointerLockEnabled: true" limit-my-distance>
+            <a-camera  id="camera" position="24 3 18" look-controls="pointerLockEnabled: true">
                  <a-entity cursor="fuse: false; fuseTimeout: 500" position="0 0 -1"
                geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: red; shader: flat">
             </a-entity>

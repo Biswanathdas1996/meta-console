@@ -46,4 +46,21 @@
                 padding: 10px !important;
             
             }
+            #controls {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                z-index: 9999;
+                }
+            .control {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                border: 1px solid white;
+                margin: 5px;
+                text-align: center;
+                line-height: 30px;
+                cursor: pointer;
+            }
+
       </style>
