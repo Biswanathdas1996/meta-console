@@ -22,7 +22,7 @@ include 'utils/dataSource.php';
    <body>
       <?php include 'components/cart_modal.php'; ?>
       <?php include 'components/description_modal.php'; ?>
-      <a-scene>
+      <a-scene joystick vr-mode-ui="enabled: false">
             <?php
             include 'AframeHelper/assetLoader.php';
             include 'AframeHelper/environment.php';
@@ -34,5 +34,6 @@ include 'utils/dataSource.php';
             include 'AframeHelper/camera.php';
             ?>
       </a-scene>
+      <script type="text/javascript" src="../../../components/AframeHelper/VirtualJoyStick.js"></script>
    </body>
 </html>

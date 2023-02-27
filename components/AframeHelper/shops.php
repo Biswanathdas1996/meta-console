@@ -27,23 +27,21 @@
 
 
 <a-text 
-value="<?php echo $value['name']; ?>" 
-color="<?php echo $value['land_locations']['shop_name_color']; ?>" 
-position="<?php echo $value['land_locations']['shop_name_position']; ?>" 
-scale="<?php echo $value['land_locations']['shop_name_scale']; ?>" 
-rotation="<?php echo $value['land_locations']['shop_name_rotation']; ?>"
-id="text_data"></a-text>
+  value="<?php echo $value['name']; ?>" 
+  color="<?php echo $value['land_locations']['shop_name_color']; ?>" 
+  position="<?php echo $value['land_locations']['shop_name_position']; ?>" 
+  scale="<?php echo $value['land_locations']['shop_name_scale']; ?>" 
+  rotation="<?php echo $value['land_locations']['shop_name_rotation']; ?>"
+  id="text_data">
+</a-text>
 
 <?php } ?> 
 
 <script>
         
         sessionStorage.clear();
-      
-       
 
-      
-         AFRAME.registerComponent("click-log", {
+        AFRAME.registerComponent("click-log", {
            init: function () {
              this.myFunction = async function (i) {
                 
@@ -106,7 +104,7 @@ id="text_data"></a-text>
                 const linkData = i?.srcElement?.parentEl?.components['camera-listener']?.data;
                 console.log("-----linkData------>",linkData);
                     
-                    
+                  // return  
                  if(linkData && i?.detail?.intersection?.distance < 5 ){
                       window.location.href = `control/pages/${linkData}`
                  }
