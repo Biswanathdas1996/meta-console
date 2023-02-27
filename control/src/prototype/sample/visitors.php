@@ -90,9 +90,7 @@ $get_active_user_data = select('active_visitors', [
                             'visitors_lead'
                         ]['contact_no']; ?> </td>
                         <td><?php echo $value['visitors_lead']['email']; ?></td>
-                        <td><b><?php echo $value['visitors_lead'][
-                            'date'
-                        ]; ?></b></td>
+                        <td><b><?php echo $value['time']; ?></b></td>
                      </tr>
                      <?php } ?>
                   </tbody>
