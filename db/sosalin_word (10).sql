@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2023 at 04:20 AM
+-- Generation Time: Feb 27, 2023 at 06:24 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -662,6 +662,26 @@ CREATE TABLE `1674706640_meta_product_table` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `active_visitors`
+--
+
+CREATE TABLE `active_visitors` (
+  `id` int(11) NOT NULL,
+  `shop` int(11) NOT NULL,
+  `visitor` int(11) NOT NULL,
+  `time` varchar(355) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `active_visitors`
+--
+
+INSERT INTO `active_visitors` (`id`, `shop`, `visitor`, `time`) VALUES
+(10, 1672225043, 80, '02/27/2023 10:42:46 am');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `business`
 --
 
@@ -1156,7 +1176,9 @@ INSERT INTO `visitors_lead` (`id`, `name`, `contact_no`, `email`, `shop`, `date`
 (79, 'Justine Neal', '784444', 'cafas@mailinator.com', '7', '01/25/2023 01:06:24 am'),
 (80, 'Biswanath Das', '5555555', 'kusuxytu@mailinator.com', '9', '01/25/2023 02:00:22 am'),
 (81, 'Biswanath Das', '5555555', 'kusuxytu@mailinator.com', '3', '01/27/2023 08:17:37 am'),
-(82, 'Biswanath Das', '5555555', 'kusuxytu@mailinator.com', '3', '01/27/2023 11:14:00 pm');
+(82, 'Biswanath Das', '5555555', 'kusuxytu@mailinator.com', '3', '01/27/2023 11:14:00 pm'),
+(83, 'Test ', '5007964736', 'tst@gmail.com', '3', '02/27/2023 10:46:26 am'),
+(84, 'Test ', '5007964736', 'tst@gmail.com', '3', '02/27/2023 10:48:36 am');
 
 --
 -- Indexes for dumped tables
@@ -1310,6 +1332,12 @@ ALTER TABLE `1674706633_meta_product_table`
 -- Indexes for table `1674706640_meta_product_table`
 --
 ALTER TABLE `1674706640_meta_product_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `active_visitors`
+--
+ALTER TABLE `active_visitors`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1527,6 +1555,12 @@ ALTER TABLE `1674706640_meta_product_table`
   MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `active_visitors`
+--
+ALTER TABLE `active_visitors`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT for table `business`
 --
 ALTER TABLE `business`
@@ -1584,7 +1618,7 @@ ALTER TABLE `shop_meta_products_loocation`
 -- AUTO_INCREMENT for table `visitors_lead`
 --
 ALTER TABLE `visitors_lead`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

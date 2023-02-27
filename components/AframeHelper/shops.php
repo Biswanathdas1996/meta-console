@@ -97,15 +97,17 @@
            init: function () {
              this.myFunction = async function (i) {
                 
-                 console.log("hi", i);
-                 console.log("distance", i?.detail?.intersection?.distance);
-                 console.log("srcElement", i?.srcElement?.parentEl?.components['camera-listener']?.data);
+                //  console.log("hi", i);
+                //  console.log("distance", i?.detail?.intersection?.distance);
+                //  console.log("srcElement", i?.srcElement?.parentEl?.components['camera-listener']?.data);
                  
                 const linkData = i?.srcElement?.parentEl?.components['camera-listener']?.data;
                 console.log("-----linkData------>",linkData);
-                    
-                  // return  
+                
                  if(linkData && i?.detail?.intersection?.distance < 5 ){
+                      
+                      activeVisitors(linkData)
+                
                       window.location.href = `control/pages/${linkData}`
                  }
 
@@ -119,6 +121,34 @@
            }
          });
          
+         
+
+
+         function activeVisitors(linkData){
+                  const visitorData = localStorage.getItem("visitor_data")
+                  const parseVisitorData = JSON.parse(visitorData);
+
+                  const name = parseVisitorData?.name;
+                  const contact = parseVisitorData?.contact_no;
+
+                    var formdata = new FormData();
+                    formdata.append("name", name);
+                    formdata.append("contact_no", contact);
+                    var requestOptions = {
+                      method: 'POST',
+                      body: formdata,
+                      redirect: 'follow'
+                    }; 
+                    fetch(`${window.API_URL}/visitor_activity.php?shop=${linkData}`, requestOptions)
+                      .then(response => response.json())
+                      .then(result => {
+                          console.log(result)
+                         
+                          
+                      })
+                      .catch(error => console.log('error', error));    
+         }
+
 
          function submitForm(){
                   const productid = document.getElementById('productid').value;
@@ -142,6 +172,7 @@
                       .then(result => {
                           console.log(result)
                           localStorage.setItem("visitor_data", JSON.stringify(result[0]));
+                          activeVisitors(result?.link)
                           window.location.href = `control/pages/${result?.link}`
                           
                       })

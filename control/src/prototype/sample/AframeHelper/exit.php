@@ -14,4 +14,4 @@
              image="../../../assets/images/outside.png"
              peekMode="true"
              camera-listener
-         ></a-link>
+         ></a-link> 

@@ -17,8 +17,18 @@ $get_all_lead = select('visitors_lead', [
     ],
 ]);
 
-// pr($get_all_lead);
-//  return;
+$get_active_user_data = select('active_visitors', [
+    'conditions' => [
+        'shop' => $shop_name,
+    ],
+    'join' => [
+        'visitors_lead' => 'visitor',
+    ],
+]);
+
+// pr($get_active_user_data);
+
+// return;
 ?>
 <?php include '../../header.php'; ?>
 <style>
@@ -46,9 +56,51 @@ $get_all_lead = select('visitors_lead', [
       <section class="people Rectangle-242 mb-5">
          <section class="w3l-team-block">
             <!-- //people cards style 1 -->
+            <div class="card card_border" style="margin-bottom: 3rem;">
+               <div class="cards__heading" style="margin-bottom: 0px;">
+                  <h3>Active Visitors</h3>
+               </div>
+               <table class="table table-striped">
+                  <thead style="background: #d85604;color: white;">
+                     <tr>
+                        <th>Name</th>
+                        <th>Contact No</th>
+                        <th>Email</th>
+                        <th>Entry Time</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <?php foreach (
+                         $get_active_user_data
+                         as $key => $value
+                     ) { ?>
+                     <tr>
+                        <td style="width:200px; ">
+                   
+                         
+                           <i class="fa fa-circle" style="color: #2e9c02;margin-right: 5px;"></i>
+                              <b> <?php if ($value['visitors_lead']['name']) {
+                                  echo $value['visitors_lead']['name'];
+                              } else {
+                                  echo 'Anonymous';
+                              } ?></b> 
+                          
+                        </td>
+                        <td style="width:150px;"><?php echo $value[
+                            'visitors_lead'
+                        ]['contact_no']; ?> </td>
+                        <td><?php echo $value['visitors_lead']['email']; ?></td>
+                        <td><b><?php echo $value['visitors_lead'][
+                            'date'
+                        ]; ?></b></td>
+                     </tr>
+                     <?php } ?>
+                  </tbody>
+               </table>
+            </div>
             <div class="card card_border">
                <div class="cards__heading" style="margin-bottom: 0px;">
-                  <h3>Visitors lead</h3>
+                  <h3>All Visitors </h3>
                </div>
                <table class="table table-striped">
                   <thead style="background: #d85604;color: white;">

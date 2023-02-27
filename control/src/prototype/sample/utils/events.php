@@ -93,7 +93,8 @@
                 
                const url = "<?php echo $url; ?>"
                  if(i?.detail?.intersection?.distance < 1 ){
-                      window.location.href = `${url}meta-console/?camera_position=${cameraPosition}`
+                    removeActiveVisitors()
+                    window.location.href = `${url}meta-console/?camera_position=${cameraPosition}`
                  }
 
              };
@@ -125,4 +126,29 @@
             document.querySelector('#video3').play();
         });
 
+
+
+        function removeActiveVisitors(){
+                  const visitorData = localStorage.getItem("visitor_data")
+                  const parseVisitorData = JSON.parse(visitorData);
+                  const name = parseVisitorData?.name;
+                  const contact = parseVisitorData?.contact_no;
+
+                    var formdata = new FormData();
+                    formdata.append("name", name);
+                    formdata.append("contact_no", contact);
+                    var requestOptions = {
+                      method: 'POST',
+                      body: formdata,
+                      redirect: 'follow'
+                    }; 
+                    fetch(`${window.API_URL}/remove_visitor_activity.php`, requestOptions)
+                      .then(response => response.json())
+                      .then(result => {
+                          console.log(result)
+                         
+                          
+                      })
+                      .catch(error => console.log('error', error));    
+         }
       </script>
